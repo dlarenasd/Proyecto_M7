@@ -49,9 +49,10 @@ class Inmueble(models.Model):
     direccion = models.OneToOneField(Direccion, unique=True, null=False, on_delete=models.CASCADE)
     tipo_inmueble = models.ForeignKey(TipoInmueble, null=False, blank=False, related_name='inmuebles',  on_delete=models.CASCADE)
     precio_mensual = models.IntegerField(null=False, blank=False)
-    arrendador = models.OneToOneField(User, null=False, blank=False, on_delete=models.CASCADE)
-    arrendatario = models.OneToOneField(Usuario, null=True, blank=True,  on_delete=models.CASCADE)
+    #arrendador = models.OneToOneField(User, null=False, blank=False, on_delete=models.CASCADE)
+    #arrendatario = models.OneToOneField(Usuario, null=True, blank=True,  on_delete=models.CASCADE)
     arrendada = models.BooleanField(default=False)
+    usuarios = models.ManyToManyField(Usuario, related_name='inmuebles')
 
 """ 
 class Solicitud(models.Model):
