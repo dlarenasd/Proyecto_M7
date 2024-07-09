@@ -5,6 +5,9 @@ from django.contrib.auth.models import User
 
 class Pais(models.Model):
     nombre = models.CharField(max_length=50, null=False, blank=False)
+    
+    def __str__(self):
+        return f"{self.nombre}"
 
 class Region(models.Model):
     nombre = models.CharField(max_length=100, null=False, blank=False)
@@ -12,9 +15,15 @@ class Region(models.Model):
     numero = models.IntegerField(null=False, blank=False)
     pais = models.ForeignKey(Pais, on_delete=models.CASCADE, null=False, blank=False, related_name='regiones')
     
+    def __str__(self):
+        return f"{self.numeroRomano} - {self.nombre} - {self.pais}"
+    
 class Comuna(models.Model):
     nombre = models.CharField(max_length=100, null=False, blank=False)
     region = models.ForeignKey(Region, on_delete=models.CASCADE, null=False, blank=False, related_name='comunas')
+    
+    def __str__(self):
+        return f"{self.nombre} - {self.region}"
 
 class Direccion(models.Model):
     calle = models.CharField(max_length=50, null=False, blank=False)

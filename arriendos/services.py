@@ -1,5 +1,32 @@
 from django.contrib.auth.models import User
 from .models import Comuna, Direccion, Inmueble, TipoInmueble, Usuario, TipoUsuario
+from .baseModel import BaseModel as bm
+
+class InmuebleModel(bm):
+
+    def sql_obtener_todos_inmuebles():
+        sql = "select nombre, arrendada from testadl_inmueble"
+        parametros = None
+        inmuebles= list(bm.execute(sql,parametros))
+
+        for inmu in inmuebles:
+            print(inmu)
+
+        return inmuebles
+
+    def obtener_todos_inmuebles():
+        return Inmueble.objects.all()
+    
+    def raw_obtener_todos_inmuebles():
+        sql = "select nombre, arrendada from testadl_inmueble"
+        query = Inmueble.objects.raw(sql)
+        for p in query:
+            print(p.nombre)
+            print(p.arrendada)
+            
+#class ClienteModel
+        
+
 #CREAR (CREATE)
 
 def crear_direccion(pCalle, pNumero, comuna_id, pIndicaciones, pDepto = None):
