@@ -1,11 +1,11 @@
 from django.contrib.auth.models import User
-from .models import Comuna, Direccion, Inmueble, TipoInmueble, Usuario, TipoUsuario
+from .models import Comuna, Inmueble, TipoInmueble, Usuario, TipoUsuario, Region
 from .baseModel import BaseModel as bm
 
 class InmuebleModel(bm):
 
     def sql_obtener_todos_inmuebles():
-        sql = "select nombre, arrendada from testadl_inmueble"
+        sql = "select nombre, arrendada from arriendos_inmueble"
         parametros = None
         inmuebles= list(bm.execute(sql,parametros))
 
@@ -18,7 +18,7 @@ class InmuebleModel(bm):
         return Inmueble.objects.all()
     
     def raw_obtener_todos_inmuebles():
-        sql = "select nombre, arrendada from testadl_inmueble"
+        sql = "select nombre, arrendada from arriendos_inmueble"
         query = Inmueble.objects.raw(sql)
         for p in query:
             print(p.nombre)
@@ -29,22 +29,14 @@ class InmuebleModel(bm):
 
 #CREAR (CREATE)
 
-def crear_direccion(pCalle, pNumero, comuna_id, pIndicaciones, pDepto = None):
-    obj_comuna = Comuna.objects.get(pk = comuna_id)
-    direccion = Direccion(calle = pCalle, 
-                        numero = pNumero, 
-                        comuna = obj_comuna,
-                        indicaciones = pIndicaciones,
-                        depto = pDepto)
-    direccion.save()
-
 def crear_tipo_inmueble(pNombre, pDescripcion):
     tipo_inmueble = TipoInmueble(nombre = pNombre, 
                                 descripcion = pDescripcion)
     tipo_inmueble.save()
     
-def crear_inmueble(pNombre, pDescripcion, pConstruidos, pTerreno, pEstacionamientos, pHabitaciones, pBanios, direccion_id, tipo_id, pPrecio, arrendador_id):
-    obj_direccion = Direccion.objects.get(pk=direccion_id)
+def crear_inmueble(pNombre, pDescripcion, pConstruidos, pTerreno, pEstacionamientos, pHabitaciones, pBanios, pDireccion, comuna_id, region_id, tipo_id, pPrecio, arrendador_id):
+    obj_comuna = Comuna.objects.get(pk=comuna_id)
+    obj_region = Region.objects.get(pk=region_id)
     obj_tipo_inmueble = TipoInmueble.objects.get(pk = tipo_id)
     
     obj_arrendador = Usuario.objects.get(pk=arrendador_id)
@@ -55,7 +47,9 @@ def crear_inmueble(pNombre, pDescripcion, pConstruidos, pTerreno, pEstacionamien
                         estacionamientos = pEstacionamientos,
                         habitaciones = pHabitaciones,
                         banios = pBanios,
-                        direccion = obj_direccion,
+                        direccion = pDireccion,
+                        comuna = obj_comuna,
+                        region = obj_region,
                         tipo_inmueble = obj_tipo_inmueble,
                         precio_mensual = pPrecio)
     inmueble.save()
@@ -80,11 +74,6 @@ def crear_usuario(user_id, pRut, pDireccion, pTelefono, tipo_id):
 
 #LISTAR (READ)
 
-def listar_direcciones():
-    lista_direcciones = Direccion.objects.all()
-    for direccion in lista_direcciones :
-        print(direccion)
-
 def listar_inmuebles():
     lista_inmuebles = Inmueble.objects.all()
     for inmueble in lista_inmuebles :
@@ -107,14 +96,9 @@ def listar_tipo_usuarios():
 
 #EDITAR(UPDATE)
 
-def editar_direccion(direccion_id, pCalle, pNumero, comuna_id, pIndicaciones, pDepto = None):
-    direccion = Direccion.objects.get(pk=direccion_id)
-    crear_direccion(pCalle, pNumero, comuna_id, pIndicaciones, pDepto)
-    direccion.save()
-
-def editar_inmueble(inmueble_id, pNombre, pDescripcion, pConstruidos, pTerreno, pEstacionamientos, pHabitaciones, pBanios, direccion_id, tipo_id, pPrecio, arrendador_id):
+def editar_inmueble(inmueble_id, pNombre, pDescripcion, pConstruidos, pTerreno, pEstacionamientos, pHabitaciones, pBanios, pDireccion, comuna_id, region_id, tipo_id, pPrecio, arrendador_id):
     inmueble = Inmueble.objects.get(pk=inmueble_id)
-    crear_inmueble(pNombre, pDescripcion, pConstruidos, pTerreno, pEstacionamientos, pHabitaciones, pBanios, direccion_id, tipo_id, pPrecio, arrendador_id)
+    crear_inmueble(pNombre, pDescripcion, pConstruidos, pTerreno, pEstacionamientos, pHabitaciones, pBanios, pDireccion, comuna_id, region_id, tipo_id, pPrecio, arrendador_id)
     inmueble.save()
 
 def asignar_arrendatario_a_inmueble(arrendatario_id, inmueble_id):
@@ -140,9 +124,6 @@ def editar_tipo_usuario(tipo_id, pNombre, pDescripcion):
     tipo_usuario.save()
 
 #ELIMINAR (DELETE)
-
-def eliminar_direccion(direccion_id):
-    Direccion.objects.get(pk=direccion_id).delete()
 
 def eliminar_inmueble(inmueble_id):
     Inmueble.objects.get(pk=inmueble_id).delete()

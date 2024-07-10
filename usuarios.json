@@ -1,0 +1,32 @@
+[
+{
+  "model": "arriendos.usuario",
+  "pk": "17123456-9",
+  "fields": {
+    "user": 3,
+    "direccion": "Martin Alonso Pinzon,  depto 31, Las Condes",
+    "telefono": "789456123",
+    "tipo_usuario": 2
+  }
+},
+{
+  "model": "arriendos.usuario",
+  "pk": "17836743-9",
+  "fields": {
+    "user": 2,
+    "direccion": "Card Antonio Samore 01355, Temuco",
+    "telefono": "1234567",
+    "tipo_usuario": 1
+  }
+},
+{
+  "model": "arriendos.usuario",
+  "pk": "17959490-9",
+  "fields": {
+    "user": 4,
+    "direccion": "Luis Thayer Ojeda 1111, depto 703, Providencia",
+    "telefono": "123321123",
+    "tipo_usuario": 1
+  }
+}
+]

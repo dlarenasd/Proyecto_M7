@@ -1,8 +1,9 @@
 [
-    {
-    "model": "arriendos.pais",
-    "fields": {
-        "nombre": "Chile"
-        }
+{
+  "model": "arriendos.pais",
+  "pk": 1,
+  "fields": {
+    "nombre": "Chile"
+  }
 }
 ]

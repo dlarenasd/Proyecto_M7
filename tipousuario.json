@@ -1,0 +1,18 @@
+[
+{
+  "model": "arriendos.tipousuario",
+  "pk": 1,
+  "fields": {
+    "nombre": "Arrendador",
+    "descripcion": "Aquellas personas que ofrecen inmuebles para ser utilizadas por otros individuos mediante el pago de una mensualidad."
+  }
+},
+{
+  "model": "arriendos.tipousuario",
+  "pk": 2,
+  "fields": {
+    "nombre": "Arrendatario",
+    "descripcion": "Aquellas personas que pagan un monto mensual para poder ocupar legalmente un inmueble del que no tienen propiedad."
+  }
+}
+]

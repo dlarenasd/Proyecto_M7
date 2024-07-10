@@ -1,0 +1,26 @@
+[
+{
+  "model": "arriendos.tipoinmueble",
+  "pk": 1,
+  "fields": {
+    "nombre": "Casa",
+    "descripcion": "Edificio de un piso o más destinado a vivienda para una familia."
+  }
+},
+{
+  "model": "arriendos.tipoinmueble",
+  "pk": 2,
+  "fields": {
+    "nombre": "Departamento",
+    "descripcion": "Unidad de vivienda que comprende una o más habitaciones diseñadas para ofrecer instalaciones completas a un individuo o familia en un bloque de viviendas."
+  }
+},
+{
+  "model": "arriendos.tipoinmueble",
+  "pk": 3,
+  "fields": {
+    "nombre": "Parcela",
+    "descripcion": "Conjunto de varias propiedades que reconocen un nombre propio común a todas ellas y que se encuentran dentro de una subdivisión de un terreno."
+  }
+}
+]

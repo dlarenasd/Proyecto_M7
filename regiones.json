@@ -1,145 +1,162 @@
-[{
-    "model": "arriendos.region",
-    "fields": {
-        "nombre": "TarapacÃ¡",
-        "numeroRomano": "I",
-        "numero": 1,
-        "pais": "1"
-        }
+[
+{
+  "model": "arriendos.region",
+  "pk": 1,
+  "fields": {
+    "nombre": "Tarapacá",
+    "numeroRomano": "I",
+    "numero": 1,
+    "pais": 1
+  }
 },
 {
-    "model": "arriendos.region",
-    "fields": {
-        "nombre": "Antofagasta",
-        "numeroRomano": "II",
-        "numero": 2,
-        "pais": "1"
-        }
+  "model": "arriendos.region",
+  "pk": 2,
+  "fields": {
+    "nombre": "Antofagasta",
+    "numeroRomano": "II",
+    "numero": 2,
+    "pais": 1
+  }
 },
 {
-    "model": "arriendos.region",
-    "fields": {
-        "nombre": "Atacama",
-        "numeroRomano": "III",
-        "numero": 3,
-        "pais": "1"
-        }
+  "model": "arriendos.region",
+  "pk": 3,
+  "fields": {
+    "nombre": "Atacama",
+    "numeroRomano": "III",
+    "numero": 3,
+    "pais": 1
+  }
 },
 {
-    "model": "arriendos.region",
-    "fields": {
-        "nombre": "Coquimbo",
-        "numeroRomano": "IV",
-        "numero": 4,
-        "pais": "1"
-        }
+  "model": "arriendos.region",
+  "pk": 4,
+  "fields": {
+    "nombre": "Coquimbo",
+    "numeroRomano": "IV",
+    "numero": 4,
+    "pais": 1
+  }
 },
 {
-    "model": "arriendos.region",
-    "fields": {
-        "nombre": "ValparaÃ­so",
-        "numeroRomano": "V",
-        "numero": 5,
-        "pais": "1"
-        }
+  "model": "arriendos.region",
+  "pk": 5,
+  "fields": {
+    "nombre": "Valparaíso",
+    "numeroRomano": "V",
+    "numero": 5,
+    "pais": 1
+  }
 },
 {
-    "model": "arriendos.region",
-    "fields": {
-        "nombre": "Libertador Gral. Bernardo Oâ€™Higgins",
-        "numeroRomano": "VI",
-        "numero": 6,
-        "pais": "1"
-        }
+  "model": "arriendos.region",
+  "pk": 6,
+  "fields": {
+    "nombre": "Libertador Gral. Bernardo O’Higgins",
+    "numeroRomano": "VI",
+    "numero": 6,
+    "pais": 1
+  }
 },
 {
-    "model": "arriendos.region",
-    "fields": {
-        "nombre": "Maule",
-        "numeroRomano": "VII",
-        "numero": 7,
-        "pais": "1"
-        }
+  "model": "arriendos.region",
+  "pk": 7,
+  "fields": {
+    "nombre": "Maule",
+    "numeroRomano": "VII",
+    "numero": 7,
+    "pais": 1
+  }
 },
 {
-    "model": "arriendos.region",
-    "fields": {
-        "nombre": "BiobÃ­o",
-        "numeroRomano": "VIII",
-        "numero": 8,
-        "pais": "1"
-        }
+  "model": "arriendos.region",
+  "pk": 8,
+  "fields": {
+    "nombre": "Biobío",
+    "numeroRomano": "VIII",
+    "numero": 8,
+    "pais": 1
+  }
 },
 {
-    "model": "arriendos.region",
-    "fields": {
-        "nombre": "AraucanÃ­a",
-        "numeroRomano": "IX",
-        "numero": 9,
-        "pais": "1"
-        }
+  "model": "arriendos.region",
+  "pk": 9,
+  "fields": {
+    "nombre": "Araucanía",
+    "numeroRomano": "IX",
+    "numero": 9,
+    "pais": 1
+  }
 },
 {
-    "model": "arriendos.region",
-    "fields": {
-        "nombre": "Los Lagos",
-        "numeroRomano": "X",
-        "numero": 10,
-        "pais": "1"
-        }
+  "model": "arriendos.region",
+  "pk": 10,
+  "fields": {
+    "nombre": "Los Lagos",
+    "numeroRomano": "X",
+    "numero": 10,
+    "pais": 1
+  }
 },
 {
-    "model": "arriendos.region",
-    "fields": {
-        "nombre": "AysÃ©n del Gral. Carlos IbÃ¡Ã±ez del Campo",
-        "numeroRomano": "XI",
-        "numero": 11,
-        "pais": "1"
-        }
+  "model": "arriendos.region",
+  "pk": 11,
+  "fields": {
+    "nombre": "Aysén del Gral. Carlos Ibáñez del Campo",
+    "numeroRomano": "XI",
+    "numero": 11,
+    "pais": 1
+  }
 },
 {
-    "model": "arriendos.region",
-    "fields": {
-        "nombre": "Magallanes y de la AntÃ¡rtica Chilena",
-        "numeroRomano": "XII",
-        "numero": 12,
-        "pais": "1"
-        }
+  "model": "arriendos.region",
+  "pk": 12,
+  "fields": {
+    "nombre": "Magallanes y de la Antártica Chilena",
+    "numeroRomano": "XII",
+    "numero": 12,
+    "pais": 1
+  }
 },
 {
-    "model": "arriendos.region",
-    "fields": {
-        "nombre": "Metropolitana de Santiago",
-        "numeroRomano": "XIII",
-        "numero": 13,
-        "pais": "1"
-        }
+  "model": "arriendos.region",
+  "pk": 13,
+  "fields": {
+    "nombre": "Metropolitana de Santiago",
+    "numeroRomano": "XIII",
+    "numero": 13,
+    "pais": 1
+  }
 },
 {
-    "model": "arriendos.region",
-    "fields": {
-        "nombre": "Los RÃ­os",
-        "numeroRomano": "XIV",
-        "numero": 14,
-        "pais": "1"
-        }
+  "model": "arriendos.region",
+  "pk": 14,
+  "fields": {
+    "nombre": "Los Ríos",
+    "numeroRomano": "XIV",
+    "numero": 14,
+    "pais": 1
+  }
 },
 {
-    "model": "arriendos.region",
-    "fields": {
-        "nombre": "Arica y Parinacota",
-        "numeroRomano": "XV",
-        "numero": 15,
-        "pais": "1"
-        }
+  "model": "arriendos.region",
+  "pk": 15,
+  "fields": {
+    "nombre": "Arica y Parinacota",
+    "numeroRomano": "XV",
+    "numero": 15,
+    "pais": 1
+  }
 },
 {
-    "model": "arriendos.region",
-    "fields": {
-        "nombre": "Ã‘uble",
-        "numeroRomano": "XVI",
-        "numero": 16,
-        "pais": "1"
-        }
+  "model": "arriendos.region",
+  "pk": 16,
+  "fields": {
+    "nombre": "Ñuble",
+    "numeroRomano": "XVI",
+    "numero": 16,
+    "pais": 1
+  }
 }
 ]

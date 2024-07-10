@@ -1,0 +1,1036 @@
+[
+{
+  "model": "arriendos.inmueble",
+  "pk": 1,
+  "fields": {
+    "nombre": "Casa del Bosque",
+    "descripcion": "Acogedora casa en un entorno natural, ideal para descanso.",
+    "m2_construidos": 120.0,
+    "m2_terreno": 350.0,
+    "estacionamientos": 2,
+    "habitaciones": 4,
+    "banios": 3,
+    "direccion": "Avenida del Bosque 123, Sector Tranquilo",
+    "comuna": 150,
+    "region": 8,
+    "tipo_inmueble": 1,
+    "precio_mensual": 450000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 2,
+  "fields": {
+    "nombre": "Casa del Lago",
+    "descripcion": "Hermosa casa con vista al lago, perfecta para vacacionar.",
+    "m2_construidos": 150.0,
+    "m2_terreno": 500.0,
+    "estacionamientos": 3,
+    "habitaciones": 5,
+    "banios": 4,
+    "direccion": "Camino del Lago 456, Sector Tranquilo",
+    "comuna": 219,
+    "region": 10,
+    "tipo_inmueble": 1,
+    "precio_mensual": 550000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 3,
+  "fields": {
+    "nombre": "Departamento Urbano",
+    "descripcion": "Moderno departamento en el corazón de la ciudad.",
+    "m2_construidos": 80.0,
+    "m2_terreno": 80.0,
+    "estacionamientos": 1,
+    "habitaciones": 3,
+    "banios": 2,
+    "direccion": "Calle Principal 789, Edificio Central, Depto.83",
+    "comuna": 101,
+    "region": 6,
+    "tipo_inmueble": 2,
+    "precio_mensual": 350000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 4,
+  "fields": {
+    "nombre": "Parcela Campestre",
+    "descripcion": "Amplia parcela en zona rural, ideal para proyectos agrícolas.",
+    "m2_construidos": 200.0,
+    "m2_terreno": 2000.0,
+    "estacionamientos": 4,
+    "habitaciones": 6,
+    "banios": 3,
+    "direccion": "Ruta Campestre km 5, Zona Rural",
+    "comuna": 250,
+    "region": 12,
+    "tipo_inmueble": 3,
+    "precio_mensual": 600000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 5,
+  "fields": {
+    "nombre": "Casa de Playa",
+    "descripcion": "Casa con acceso directo a la playa, ideal para el verano.",
+    "m2_construidos": 130.0,
+    "m2_terreno": 400.0,
+    "estacionamientos": 2,
+    "habitaciones": 4,
+    "banios": 2,
+    "direccion": "Paseo Marítimo 123, Costa Azul",
+    "comuna": 75,
+    "region": 5,
+    "tipo_inmueble": 1,
+    "precio_mensual": 500000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 6,
+  "fields": {
+    "nombre": "Departamento Moderno",
+    "descripcion": "Luminoso departamento con excelentes vistas de la ciudad.",
+    "m2_construidos": 90.0,
+    "m2_terreno": 90.0,
+    "estacionamientos": 1,
+    "habitaciones": 2,
+    "banios": 2,
+    "direccion": "Avenida del Sol 345, Depto.1303",
+    "comuna": 145,
+    "region": 8,
+    "tipo_inmueble": 2,
+    "precio_mensual": 400000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 7,
+  "fields": {
+    "nombre": "Parcela de Recreo",
+    "descripcion": "Parcela con áreas verdes y zona de juegos, perfecta para la familia.",
+    "m2_construidos": 180.0,
+    "m2_terreno": 1500.0,
+    "estacionamientos": 3,
+    "habitaciones": 4,
+    "banios": 3,
+    "direccion": "Camino Recreo 567, Zona Verde",
+    "comuna": 300,
+    "region": 13,
+    "tipo_inmueble": 3,
+    "precio_mensual": 700000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 8,
+  "fields": {
+    "nombre": "Casa de Montaña",
+    "descripcion": "Casa acogedora en la montaña, ideal para escapadas de fin de semana.",
+    "m2_construidos": 140.0,
+    "m2_terreno": 600.0,
+    "estacionamientos": 2,
+    "habitaciones": 3,
+    "banios": 2,
+    "direccion": "Camino a la Montaña 789, Sector Nevado",
+    "comuna": 190,
+    "region": 9,
+    "tipo_inmueble": 1,
+    "precio_mensual": 450000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 9,
+  "fields": {
+    "nombre": "Loft Urbano",
+    "descripcion": "Espacioso loft en edificio histórico, con diseño moderno.",
+    "m2_construidos": 70.0,
+    "m2_terreno": 70.0,
+    "estacionamientos": 1,
+    "habitaciones": 1,
+    "banios": 1,
+    "direccion": "Calle Antiguo 123, Barrio Histórico, Depto.13",
+    "comuna": 50,
+    "region": 5,
+    "tipo_inmueble": 2,
+    "precio_mensual": 300000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 10,
+  "fields": {
+    "nombre": "Parcela Ecológica",
+    "descripcion": "Parcela con enfoque ecológico, ideal para proyectos sostenibles.",
+    "m2_construidos": 220.0,
+    "m2_terreno": 2500.0,
+    "estacionamientos": 3,
+    "habitaciones": 5,
+    "banios": 4,
+    "direccion": "Camino Ecológico 234, Zona Verde",
+    "comuna": 320,
+    "region": 14,
+    "tipo_inmueble": 3,
+    "precio_mensual": 750000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 11,
+  "fields": {
+    "nombre": "Casa de Campo",
+    "descripcion": "Casa tradicional en el campo, con amplio terreno para cultivo.",
+    "m2_construidos": 160.0,
+    "m2_terreno": 1000.0,
+    "estacionamientos": 2,
+    "habitaciones": 4,
+    "banios": 2,
+    "direccion": "Camino Real 567, Zona Rural",
+    "comuna": 275,
+    "region": 13,
+    "tipo_inmueble": 1,
+    "precio_mensual": 500000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 12,
+  "fields": {
+    "nombre": "Casa en el Valle",
+    "descripcion": "Casa con hermosas vistas al valle, ideal para desconectar.",
+    "m2_construidos": 110.0,
+    "m2_terreno": 300.0,
+    "estacionamientos": 1,
+    "habitaciones": 3,
+    "banios": 2,
+    "direccion": "Camino del Valle 123, Sector Tranquilo",
+    "comuna": 80,
+    "region": 6,
+    "tipo_inmueble": 1,
+    "precio_mensual": 400000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 13,
+  "fields": {
+    "nombre": "Penthouse Lujoso",
+    "descripcion": "Exclusivo penthouse en la zona más prestigiosa de la ciudad.",
+    "m2_construidos": 200.0,
+    "m2_terreno": 200.0,
+    "estacionamientos": 2,
+    "habitaciones": 4,
+    "banios": 3,
+    "direccion": "Avenida de la Elite 456, Piso 15",
+    "comuna": 45,
+    "region": 5,
+    "tipo_inmueble": 2,
+    "precio_mensual": 900000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 14,
+  "fields": {
+    "nombre": "Finca Rústica",
+    "descripcion": "Finca rústica con amplias áreas verdes y árboles frutales.",
+    "m2_construidos": 250.0,
+    "m2_terreno": 3000.0,
+    "estacionamientos": 3,
+    "habitaciones": 5,
+    "banios": 4,
+    "direccion": "Camino Viejo 678, Zona Rural",
+    "comuna": 200,
+    "region": 9,
+    "tipo_inmueble": 3,
+    "precio_mensual": 800000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 15,
+  "fields": {
+    "nombre": "Casa Moderna",
+    "descripcion": "Casa con diseño moderno y acabados de lujo.",
+    "m2_construidos": 180.0,
+    "m2_terreno": 400.0,
+    "estacionamientos": 2,
+    "habitaciones": 4,
+    "banios": 3,
+    "direccion": "Calle del Arte 123, Sector Exclusivo",
+    "comuna": 90,
+    "region": 6,
+    "tipo_inmueble": 1,
+    "precio_mensual": 600000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 16,
+  "fields": {
+    "nombre": "Estudio Céntrico",
+    "descripcion": "Estudio en pleno centro, ideal para profesionales.",
+    "m2_construidos": 50.0,
+    "m2_terreno": 50.0,
+    "estacionamientos": 1,
+    "habitaciones": 1,
+    "banios": 1,
+    "direccion": "Plaza Mayor 123, Edificio Central, Depto.514",
+    "comuna": 35,
+    "region": 4,
+    "tipo_inmueble": 2,
+    "precio_mensual": 250000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 17,
+  "fields": {
+    "nombre": "Parcela Recreativa",
+    "descripcion": "Parcela con piscina y áreas de esparcimiento.",
+    "m2_construidos": 300.0,
+    "m2_terreno": 2000.0,
+    "estacionamientos": 4,
+    "habitaciones": 5,
+    "banios": 3,
+    "direccion": "Ruta Recreativa km 10, Zona Verde",
+    "comuna": 275,
+    "region": 13,
+    "tipo_inmueble": 3,
+    "precio_mensual": 850000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 18,
+  "fields": {
+    "nombre": "Casa Histórica",
+    "descripcion": "Casa con valor histórico en barrio tradicional.",
+    "m2_construidos": 140.0,
+    "m2_terreno": 350.0,
+    "estacionamientos": 1,
+    "habitaciones": 3,
+    "banios": 2,
+    "direccion": "Calle Antigua 456, Barrio Histórico",
+    "comuna": 50,
+    "region": 5,
+    "tipo_inmueble": 1,
+    "precio_mensual": 500000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 19,
+  "fields": {
+    "nombre": "Departamento Minimalista",
+    "descripcion": "Departamento con diseño minimalista y espacios abiertos.",
+    "m2_construidos": 70.0,
+    "m2_terreno": 70.0,
+    "estacionamientos": 1,
+    "habitaciones": 2,
+    "banios": 1,
+    "direccion": "Avenida Minimal 789, Depto.807",
+    "comuna": 110,
+    "region": 6,
+    "tipo_inmueble": 2,
+    "precio_mensual": 320000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 20,
+  "fields": {
+    "nombre": "Casa Tradicional",
+    "descripcion": "Casa de estilo tradicional con amplio jardín.",
+    "m2_construidos": 160.0,
+    "m2_terreno": 500.0,
+    "estacionamientos": 2,
+    "habitaciones": 4,
+    "banios": 3,
+    "direccion": "Calle Jardín 123, Sector Familiar",
+    "comuna": 210,
+    "region": 10,
+    "tipo_inmueble": 1,
+    "precio_mensual": 550000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 21,
+  "fields": {
+    "nombre": "Loft Industrial",
+    "descripcion": "Loft con diseño industrial en edificio de estilo fábrica.",
+    "m2_construidos": 80.0,
+    "m2_terreno": 80.0,
+    "estacionamientos": 1,
+    "habitaciones": 1,
+    "banios": 1,
+    "direccion": "Calle Fábrica 456, Depto.32",
+    "comuna": 120,
+    "region": 7,
+    "tipo_inmueble": 2,
+    "precio_mensual": 280000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 22,
+  "fields": {
+    "nombre": "Casa del Río",
+    "descripcion": "Casa con acceso privado al río, perfecta para relajarse.",
+    "m2_construidos": 130.0,
+    "m2_terreno": 450.0,
+    "estacionamientos": 2,
+    "habitaciones": 4,
+    "banios": 3,
+    "direccion": "Ribera del Río 123, Sector Natural",
+    "comuna": 95,
+    "region": 6,
+    "tipo_inmueble": 1,
+    "precio_mensual": 470000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 23,
+  "fields": {
+    "nombre": "Departamento Ejecutivo",
+    "descripcion": "Departamento en zona financiera, ideal para ejecutivos.",
+    "m2_construidos": 85.0,
+    "m2_terreno": 85.0,
+    "estacionamientos": 1,
+    "habitaciones": 2,
+    "banios": 2,
+    "direccion": "Avenida Financiera 456, Edificio Ejecutivo, Depto.503",
+    "comuna": 30,
+    "region": 4,
+    "tipo_inmueble": 2,
+    "precio_mensual": 380000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 24,
+  "fields": {
+    "nombre": "Parcela Vitivinícola",
+    "descripcion": "Parcela con viñedos y bodegas, ideal para producción de vino.",
+    "m2_construidos": 210.0,
+    "m2_terreno": 3500.0,
+    "estacionamientos": 4,
+    "habitaciones": 5,
+    "banios": 4,
+    "direccion": "Ruta del Vino km 12, Zona Vitivinícola",
+    "comuna": 265,
+    "region": 13,
+    "tipo_inmueble": 3,
+    "precio_mensual": 950000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 25,
+  "fields": {
+    "nombre": "Casa de Piedra",
+    "descripcion": "Casa construida en piedra, con estilo rústico y elegante.",
+    "m2_construidos": 190.0,
+    "m2_terreno": 500.0,
+    "estacionamientos": 2,
+    "habitaciones": 4,
+    "banios": 3,
+    "direccion": "Calle de la Piedra 789, Sector Rústico",
+    "comuna": 115,
+    "region": 7,
+    "tipo_inmueble": 1,
+    "precio_mensual": 620000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 26,
+  "fields": {
+    "nombre": "Apartamento Estudio",
+    "descripcion": "Apartamento compacto y funcional, en excelente ubicación.",
+    "m2_construidos": 45.0,
+    "m2_terreno": 45.0,
+    "estacionamientos": 1,
+    "habitaciones": 1,
+    "banios": 1,
+    "direccion": "Calle Central 234, Edificio Urbano, Depto.1304",
+    "comuna": 60,
+    "region": 5,
+    "tipo_inmueble": 2,
+    "precio_mensual": 220000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 27,
+  "fields": {
+    "nombre": "Parcela Ecológica",
+    "descripcion": "Parcela con prácticas ecológicas, ideal para amantes de la naturaleza.",
+    "m2_construidos": 270.0,
+    "m2_terreno": 4000.0,
+    "estacionamientos": 3,
+    "habitaciones": 5,
+    "banios": 3,
+    "direccion": "Camino Ecológico km 8, Zona Verde",
+    "comuna": 310,
+    "region": 14,
+    "tipo_inmueble": 3,
+    "precio_mensual": 780000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 28,
+  "fields": {
+    "nombre": "Casa Minimalista",
+    "descripcion": "Casa de diseño minimalista con grandes ventanales.",
+    "m2_construidos": 160.0,
+    "m2_terreno": 450.0,
+    "estacionamientos": 2,
+    "habitaciones": 4,
+    "banios": 2,
+    "direccion": "Avenida del Diseño 456, Sector Moderno",
+    "comuna": 125,
+    "region": 7,
+    "tipo_inmueble": 1,
+    "precio_mensual": 530000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 29,
+  "fields": {
+    "nombre": "Departamento Familiar",
+    "descripcion": "Departamento amplio, ideal para familias grandes.",
+    "m2_construidos": 120.0,
+    "m2_terreno": 120.0,
+    "estacionamientos": 2,
+    "habitaciones": 3,
+    "banios": 2,
+    "direccion": "Calle Familiar 789, Depto.1202",
+    "comuna": 85,
+    "region": 6,
+    "tipo_inmueble": 2,
+    "precio_mensual": 450000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 30,
+  "fields": {
+    "nombre": "Parcela Frutal",
+    "descripcion": "Parcela con huertos frutales, ideal para producción agrícola.",
+    "m2_construidos": 230.0,
+    "m2_terreno": 5000.0,
+    "estacionamientos": 3,
+    "habitaciones": 5,
+    "banios": 3,
+    "direccion": "Ruta Frutal km 15, Zona Agrícola",
+    "comuna": 280,
+    "region": 13,
+    "tipo_inmueble": 3,
+    "precio_mensual": 820000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 31,
+  "fields": {
+    "nombre": "Casa de Verano",
+    "descripcion": "Casa con piscina y áreas de descanso, ideal para el verano.",
+    "m2_construidos": 150.0,
+    "m2_terreno": 600.0,
+    "estacionamientos": 2,
+    "habitaciones": 4,
+    "banios": 3,
+    "direccion": "Paseo del Sol 123, Zona Recreativa",
+    "comuna": 105,
+    "region": 6,
+    "tipo_inmueble": 1,
+    "precio_mensual": 580000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 32,
+  "fields": {
+    "nombre": "Villa Encantada",
+    "descripcion": "Hermosa villa con jardín exuberante y vistas impresionantes.",
+    "m2_construidos": 140.0,
+    "m2_terreno": 600.0,
+    "estacionamientos": 3,
+    "habitaciones": 4,
+    "banios": 3,
+    "direccion": "Calle de la Encantada 123, Barrio Tranquilo",
+    "comuna": 130,
+    "region": 7,
+    "tipo_inmueble": 1,
+    "precio_mensual": 520000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 33,
+  "fields": {
+    "nombre": "Condominio de Lujo",
+    "descripcion": "Departamento en condominio exclusivo con todas las comodidades.",
+    "m2_construidos": 150.0,
+    "m2_terreno": 150.0,
+    "estacionamientos": 2,
+    "habitaciones": 3,
+    "banios": 2,
+    "direccion": "Avenida de la Exclusividad 456, Torre 1, Depto.91",
+    "comuna": 75,
+    "region": 5,
+    "tipo_inmueble": 2,
+    "precio_mensual": 750000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 34,
+  "fields": {
+    "nombre": "Casa Campestre",
+    "descripcion": "Casa en el campo con amplios espacios y naturaleza alrededor.",
+    "m2_construidos": 170.0,
+    "m2_terreno": 800.0,
+    "estacionamientos": 4,
+    "habitaciones": 5,
+    "banios": 3,
+    "direccion": "Camino Campestre 678, Zona Rural",
+    "comuna": 240,
+    "region": 11,
+    "tipo_inmueble": 1,
+    "precio_mensual": 630000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 35,
+  "fields": {
+    "nombre": "Loft Artístico",
+    "descripcion": "Loft en el corazón del barrio artístico, con diseño innovador.",
+    "m2_construidos": 90.0,
+    "m2_terreno": 90.0,
+    "estacionamientos": 1,
+    "habitaciones": 1,
+    "banios": 1,
+    "direccion": "Calle del Arte 123, Edificio Creativo, Depto. 54",
+    "comuna": 20,
+    "region": 3,
+    "tipo_inmueble": 2,
+    "precio_mensual": 310000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 36,
+  "fields": {
+    "nombre": "Parcela del Bosque",
+    "descripcion": "Parcela rodeada de árboles, ideal para amantes de la naturaleza.",
+    "m2_construidos": 260.0,
+    "m2_terreno": 3500.0,
+    "estacionamientos": 4,
+    "habitaciones": 4,
+    "banios": 3,
+    "direccion": "Ruta del Bosque km 10, Sector Natural",
+    "comuna": 290,
+    "region": 13,
+    "tipo_inmueble": 3,
+    "precio_mensual": 920000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 37,
+  "fields": {
+    "nombre": "Casa Contemporánea",
+    "descripcion": "Casa con diseño contemporáneo y acabados de alta calidad.",
+    "m2_construidos": 190.0,
+    "m2_terreno": 450.0,
+    "estacionamientos": 2,
+    "habitaciones": 4,
+    "banios": 3,
+    "direccion": "Avenida del Moderno 456, Sector Nuevo",
+    "comuna": 55,
+    "region": 5,
+    "tipo_inmueble": 1,
+    "precio_mensual": 590000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 38,
+  "fields": {
+    "nombre": "Estudio Urbano",
+    "descripcion": "Estudio compacto en pleno centro urbano, ideal para solteros.",
+    "m2_construidos": 55.0,
+    "m2_terreno": 55.0,
+    "estacionamientos": 1,
+    "habitaciones": 1,
+    "banios": 1,
+    "direccion": "Calle Central 456, Edificio Moderno, Depto.64",
+    "comuna": 70,
+    "region": 5,
+    "tipo_inmueble": 2,
+    "precio_mensual": 260000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 39,
+  "fields": {
+    "nombre": "Parcela de Relajo",
+    "descripcion": "Parcela con spa y áreas de relajo, ideal para descansar.",
+    "m2_construidos": 280.0,
+    "m2_terreno": 4500.0,
+    "estacionamientos": 5,
+    "habitaciones": 6,
+    "banios": 4,
+    "direccion": "Ruta del Relajo km 5, Zona Tranquila",
+    "comuna": 320,
+    "region": 14,
+    "tipo_inmueble": 3,
+    "precio_mensual": 970000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 40,
+  "fields": {
+    "nombre": "Casa Playera",
+    "descripcion": "Casa cerca de la playa, perfecta para vacaciones.",
+    "m2_construidos": 130.0,
+    "m2_terreno": 500.0,
+    "estacionamientos": 2,
+    "habitaciones": 4,
+    "banios": 3,
+    "direccion": "Avenida del Mar 789, Sector Costero",
+    "comuna": 105,
+    "region": 6,
+    "tipo_inmueble": 1,
+    "precio_mensual": 580000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 41,
+  "fields": {
+    "nombre": "Departamento Panorámico",
+    "descripcion": "Departamento con vistas panorámicas de la ciudad.",
+    "m2_construidos": 100.0,
+    "m2_terreno": 100.0,
+    "estacionamientos": 2,
+    "habitaciones": 3,
+    "banios": 2,
+    "direccion": "Avenida Panorámica 123, Depto. 2003",
+    "comuna": 95,
+    "region": 6,
+    "tipo_inmueble": 2,
+    "precio_mensual": 450000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 42,
+  "fields": {
+    "nombre": "Residencia Moderna",
+    "descripcion": "Casa moderna con acabados de lujo y tecnología de punta.",
+    "m2_construidos": 200.0,
+    "m2_terreno": 500.0,
+    "estacionamientos": 3,
+    "habitaciones": 4,
+    "banios": 3,
+    "direccion": "Calle Moderna 456, Sector Innovador",
+    "comuna": 110,
+    "region": 6,
+    "tipo_inmueble": 1,
+    "precio_mensual": 650000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 43,
+  "fields": {
+    "nombre": "Apartamento Ejecutivo",
+    "descripcion": "Apartamento en el centro de la ciudad, ideal para profesionales.",
+    "m2_construidos": 95.0,
+    "m2_terreno": 95.0,
+    "estacionamientos": 1,
+    "habitaciones": 2,
+    "banios": 2,
+    "direccion": "Avenida Principal 123, Edificio Empresarial, Depto. 37",
+    "comuna": 40,
+    "region": 4,
+    "tipo_inmueble": 2,
+    "precio_mensual": 400000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 44,
+  "fields": {
+    "nombre": "Parcela de la Sierra",
+    "descripcion": "Parcela con vistas a la sierra, ideal para descanso y recreación.",
+    "m2_construidos": 240.0,
+    "m2_terreno": 6000.0,
+    "estacionamientos": 4,
+    "habitaciones": 5,
+    "banios": 4,
+    "direccion": "Camino de la Sierra km 15, Zona Alta",
+    "comuna": 275,
+    "region": 13,
+    "tipo_inmueble": 3,
+    "precio_mensual": 880000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 45,
+  "fields": {
+    "nombre": "Casa Colonial",
+    "descripcion": "Casa con arquitectura colonial y amplios jardines.",
+    "m2_construidos": 180.0,
+    "m2_terreno": 750.0,
+    "estacionamientos": 3,
+    "habitaciones": 4,
+    "banios": 3,
+    "direccion": "Calle Colonial 789, Barrio Histórico",
+    "comuna": 125,
+    "region": 7,
+    "tipo_inmueble": 1,
+    "precio_mensual": 580000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 46,
+  "fields": {
+    "nombre": "Penthouse de Lujo",
+    "descripcion": "Penthouse con vistas espectaculares y acabados de lujo.",
+    "m2_construidos": 160.0,
+    "m2_terreno": 160.0,
+    "estacionamientos": 2,
+    "habitaciones": 3,
+    "banios": 3,
+    "direccion": "Avenida del Lujo 456, Edificio Exclusivo, Piso 8",
+    "comuna": 90,
+    "region": 6,
+    "tipo_inmueble": 2,
+    "precio_mensual": 900000,
+    "arrendada": false,
+    "usuarios": [
+      "17836743-9"
+    ]
+  }
+},
+{
+  "model": "arriendos.inmueble",
+  "pk": 47,
+  "fields": {
+    "nombre": "Casa Rústica",
+    "descripcion": "Casa con estilo rústico y acogedor en un entorno natural.",
+    "m2_construidos": 140.0,
+    "m2_terreno": 400.0,
+    "estacionamientos": 2,
+    "habitaciones": 3,
+    "banios": 2,
+    "direccion": "Calle Rústica 123, Zona Campestre",
+    "comuna": 135,
+    "region": 7,
+    "tipo_inmueble": 1,
+    "precio_mensual": 470000,
+    "arrendada": false,
+    "usuarios": [
+      "17959490-9"
+    ]
+  }
+}
+]

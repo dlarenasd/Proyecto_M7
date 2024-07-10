@@ -23,18 +23,14 @@ class Comuna(models.Model):
     region = models.ForeignKey(Region, on_delete=models.CASCADE, null=False, blank=False, related_name='comunas')
     
     def __str__(self):
-        return f"{self.nombre} - {self.region}"
-
-class Direccion(models.Model):
-    calle = models.CharField(max_length=50, null=False, blank=False)
-    numero = models.CharField(max_length=50, null=False, blank=False)
-    depto = models.CharField(max_length=50, null=True, blank=True)
-    comuna = models.ForeignKey(Comuna, null=False, blank=False, related_name='direcciones',  on_delete=models.CASCADE)
-    indicaciones = models.TextField(null=True, blank=True)
+        return f"{self.nombre} - {self.region.nombre}, {self.region.pais}"
     
 class TipoUsuario(models.Model):
     nombre = models.CharField(max_length=50, null=False, blank=False)
     descripcion = models.TextField(null=True, blank=True)
+    
+    def __str__(self):
+        return f"{self.nombre}"
 
 class Usuario(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -42,10 +38,17 @@ class Usuario(models.Model):
     direccion = models.CharField(max_length=100, null=False, blank=False)
     telefono = models.CharField(max_length=15)
     tipo_usuario = models.ForeignKey(TipoUsuario, null=False, blank=False, related_name='usuarios',  on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f"{self.user.first_name} {self.user.last_name} - {self.rut} | {self.tipo_usuario}"
 
 class TipoInmueble(models.Model):
     nombre = models.CharField(max_length=50, null=False, blank=False)
     descripcion = models.TextField(null=True, blank=True)
+    
+    def __str__(self):
+        return f"{self.nombre}"
+    
 
 class Inmueble(models.Model):
     nombre = models.CharField(max_length=100, null=False, blank=False)
@@ -55,13 +58,18 @@ class Inmueble(models.Model):
     estacionamientos = models.IntegerField()
     habitaciones = models.IntegerField()
     banios = models.IntegerField()
-    direccion = models.OneToOneField(Direccion, unique=True, null=False, on_delete=models.CASCADE)
+    direccion = models.CharField(max_length=100, null=False, blank=False)
+    comuna = models.ForeignKey(Comuna, null=False, blank=False, related_name='direcciones',  on_delete=models.CASCADE)
+    region = models.ForeignKey(Region, null=False, blank=False, related_name='direcciones',  on_delete=models.CASCADE)
     tipo_inmueble = models.ForeignKey(TipoInmueble, null=False, blank=False, related_name='inmuebles',  on_delete=models.CASCADE)
     precio_mensual = models.IntegerField(null=False, blank=False)
     #arrendador = models.OneToOneField(User, null=False, blank=False, on_delete=models.CASCADE)
     #arrendatario = models.OneToOneField(Usuario, null=True, blank=True,  on_delete=models.CASCADE)
     arrendada = models.BooleanField(default=False)
     usuarios = models.ManyToManyField(Usuario, related_name='inmuebles')
+    
+    def __str__(self):
+        return f"{self.nombre} - {self.direccion}, {self.comuna.nombre}"
 
 """ 
 class Solicitud(models.Model):
