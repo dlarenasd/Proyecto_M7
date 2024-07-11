@@ -43,7 +43,9 @@ def listar_por_region(nombre_region):
     inm.region_id = region.id
     where region.nombre LIKE %s
     """
+    print(nombre_region)
     data = Inmueble.objects.raw(select, [f'%{nombre_region}%'])  
+    print(data)
     archi2=open("porregion.txt", "a", encoding="utf-8")
     for inm in data:
         archi2.write(f"{inm.id} - {inm.nombre} - {inm.region.nombre} \n")
@@ -90,7 +92,7 @@ if __name__=="__main__":
     listar_por_comuna("Temuco")
     listar_por_region("Araucanía")
     listar_por_comuna("San Antonio")
-    listar_por_region("Ñuble")
+    listar_por_region("Metropolitana")
     listar_por_comuna("La Pintana")
     listar_por_region("Los Lagos")
 

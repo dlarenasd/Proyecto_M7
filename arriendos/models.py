@@ -33,7 +33,7 @@ class TipoUsuario(models.Model):
         return f"{self.nombre}"
 
 class Usuario(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null = False)
     rut = models.CharField(max_length=12, primary_key=True)
     direccion = models.CharField(max_length=100, null=False, blank=False)
     telefono = models.CharField(max_length=15)
@@ -63,8 +63,6 @@ class Inmueble(models.Model):
     region = models.ForeignKey(Region, null=False, blank=False, related_name='direcciones',  on_delete=models.CASCADE)
     tipo_inmueble = models.ForeignKey(TipoInmueble, null=False, blank=False, related_name='inmuebles',  on_delete=models.CASCADE)
     precio_mensual = models.IntegerField(null=False, blank=False)
-    #arrendador = models.OneToOneField(User, null=False, blank=False, on_delete=models.CASCADE)
-    #arrendatario = models.OneToOneField(Usuario, null=True, blank=True,  on_delete=models.CASCADE)
     arrendada = models.BooleanField(default=False)
     usuarios = models.ManyToManyField(Usuario, related_name='inmuebles')
     

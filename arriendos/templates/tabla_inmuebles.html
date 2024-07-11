@@ -1,0 +1,24 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Precio Mensual</th>
+            <th scope="col">Comuna</th>
+            <th scope="col">Región</th>
+            <!--<th scope="col-2">Acciones</th>-->
+            
+        </tr>
+    </thead>
+    <tbody>
+    {%for inm in inmuebles%}
+    <tr>
+        <td><h5>{{inm.nombre}}</h5> </td>
+        <td><h5>{{inm.descripcion}}</h5></td>
+        <td><h5>{{inm.precio_mensual}}</h5></td>
+        <td><h5>{{inm.comuna.nombre}}</h5></td>
+        <td><h5>{{inm.region.nombre}}</h5></td>
+    </tr>
+    {%endfor%}
+</tbody>
+</table>

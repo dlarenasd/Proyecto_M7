@@ -1,30 +1,39 @@
 {% extends "base.html" %}
 {%load static%}
-    {%block 'contenido'%}
-<div class=container>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Descripción</th>
-                <th scope="col">Precio Mensual</th>
-                <th scope="col">Comuna</th>
-                <th scope="col">Región</th>
-                <!--<th scope="col-2">Acciones</th>-->
-                
-            </tr>
-        </thead>
-        <tbody>
-        {%for inm in inmuebles%}
-        <tr>
-            <td><h5>{{inm.nombre}}</h5> </td>
-            <td><h5>{{inm.descripcion}}</h5></td>
-            <td><h5>{{inm.precio_mensual}}</h5></td>
-            <td><h5>{{inm.comuna.nombre}}</h5></td>
-            <td><h5>{{inm.region.nombre}}</h5></td>
-        </tr>
-        {%endfor%}
-    </tbody>
-</table>
+{%block 'contenido'%}
+<div class="container">
+    <form action="{%url 'buscar_inmuebles'%}" method="POST">
+        {%csrf_token%}
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                <label for="tipos_inmuebles"> Tipo de inmueble: </label>
+                <select class="form-select" aria-label="select tipos de inmueble" name="tipos_inmuebles">
+                    <option selected>Selecciona tu tipo de inmueble</option>
+                    {% for tipo in tipos_inmuebles%}
+                    <option value={{tipo.id}}>{{tipo.nombre}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <label for="regiones"> Regiones: </label>
+                <select class="form-select" aria-label="select regiones" id="regiones" name="regiones" onchange="filtrarComunas(this.value)">
+                    <option selected>Selecciona tu región</option>
+                    {%for region in regiones%}
+                    <option value={{region.id}}>{{region.nombre}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <label for="comunas"> Comunas: </label>
+                <select class="form-select" aria-label="select comunas" id="comunas" name="comunas">
+                    <option selected>Selecciona tu comuna</option>
+                </select>
+            </div>
+            <div class="col-sm-12 col-md-3 my-4">
+                <input type="submit" value="Buscar">
+            </div>
+        </div>
+        
+    </form>
 </div>
-    {%endblock%}
+{%endblock%}

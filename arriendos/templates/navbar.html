@@ -9,7 +9,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Inicio</a>
+                        <a class="nav-link" aria-current="page" href="{% url 'indice'%}">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
@@ -21,34 +21,34 @@
                             Contacto
                         </a>
                     </li>
-                    {% if user.is_authenticated %}
+                    {% if user.usuario.tipo_usuario.id == 1 %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{% url 'inmuebles'%}">
                             Inmuebles
                         </a>
                     </li>
                     {%endif%}
                     {% if user.is_superuser %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> Admin</a>
+                        <a class="nav-link" href="{% url 'admin:index' %}"> Admin</a>
                     </li>
                     {% endif %}
                 </ul>
 
                 {% if user.is_authenticated%}
-                <form method="post" action="#" class="ms-auto">
+                <form method="post" action="{% url 'logout' %}" class="ms-auto">
                     {% csrf_token %}
                     <button class="btn btn-info" type="submit">Cerrar Sesión</button>
                 </form>
                 {%else%}
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="btn btn-info" href="#">
+                        <a class="btn btn-info" href="{% url 'login'%}">
                             Iniciar sesión
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-info" href="#">
+                        <a class="btn btn-info" href="{%url 'registro'%}">
                             Registro
                         </a>
                     </li>
