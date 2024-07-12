@@ -17,11 +17,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{%url 'contacto'%}">
                             Contacto
                         </a>
                     </li>
-                    {% if user.usuario.tipo_usuario.id == 1 %}
+                    
+                    {% if user.usuario.tipo_usuario.nombre == "Arrendador" %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'inmuebles'%}">
                             Inmuebles

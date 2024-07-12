@@ -6,25 +6,31 @@
     <h2 class="text-center">Nuestros Productos</h2>
     <section>
         <div class="container py-3">
+            {%if inmuebles%}
             <div class="row gx-3 gy-3">
-                {% for flan in flanes_publicos %}
+                {% for inm in inmuebles %}
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card">
-                        <img src="{% static "" %}{{flan.static_url}}" class="card-img-top" alt="{{flan.name}}">
                         <div class="card-body">
-                            <h5 class="card-title">{{flan.name}}</h5>
-                            <p class="card-text">{{flan.description}}</p>
+                            <h5 class="card-title">{{inm.nombre}}</h5>
+                            <p class="card-text">{{inm.descripcion}}</p>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">{{flan.precio}}</li>
+                            <li class="list-group-item">{{inm.precio_mensual}}</li>
+                            <li class="list-group-item">{{inm.comuna.nombre}}</li>
                         </ul>
                         <div class="card-body">
-                            <a href="#" class="card-link">Agregar al carro</a>
+                            <a href="#" class="card-link">Ver más</a>
                         </div>
                     </div>
                 </div>
                 {% endfor%}
             </div>
+            {%else%}
+            <div class="container">
+                <h4 class="text-center">¡Lo sentimos! No hay inmuebles que cumplan con los criterios</h4>
+            </div>
+            {%endif%}
         </div>
     </section>
 </div>

@@ -6,28 +6,49 @@
 <table class="table">
     <thead>
         <tr>
+            <th scope="col">#</th>
             <th scope="col">Nombre</th>
             <th scope="col">Descripción</th>
             <th scope="col">Precio Mensual</th>
             <th scope="col">Comuna</th>
             <th scope="col">Región</th>
-            <!--<th scope="col-2">Acciones</th>-->
+            <th scope="col">Estado</th>
+            <th scope="col-2">Acciones</th>
             
         </tr>
     </thead>
     <tbody>
     {%for inm in lista_inmuebles%}
     <tr>
-        <td><h5>{{inm.nombre}}</h5> </td>
-        <td><h5>{{inm.descripcion}}</h5></td>
-        <td><h5>{{inm.precio_mensual}}</h5></td>
-        <td><h5>{{inm.comuna.nombre}}</h5></td>
-        <td><h5>{{inm.region.nombre}}</h5></td>
+        <th scope="row">{{inm.id}}</th>
+        <td><a href="ver_inmueble/{{inm.id}}">{{inm.nombre}}</a></td>
+        <td>{{inm.descripcion}}</td>
+        <td>{{inm.precio_mensual}}</td>
+        <td>{{inm.comuna.nombre}}</td>
+        <td>{{inm.region.nombre}}</td>
+        {% if inm.arrendada == True%}
+                <td>Arrendada</td>
+            {% else%}
+                <td>Disponible</td>
+            {%endif%}
+            <td><a href="editar_inmueble/{{inm.id}}">Editar |
+                <a href="eliminar_inmueble/{{inm.id}}"> Eliminar</td>
     </tr>
     {%endfor%}
 </tbody>
 </table>
+{%block 'paginacion'%}
+{%include 'paginacion.html'%}
+{%endblock%}
+
 {% else %}
     <p>No hay inmuebles registrados</p>
 {% endif %}
+<div class="container position-relative">
+    <div class="position-absolute top-0 start-50 translate-middle">
+        <a class="btn btn-info" href="{% url 'crear_inmueble'%}"> Crear inmueble</a>
+    </div>
+</div>
+
+
 {%endblock%}

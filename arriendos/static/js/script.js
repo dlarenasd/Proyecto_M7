@@ -19,8 +19,8 @@ const filtrarComunas = async (regionId) => {
   
         // Crea una opción por defecto
         const defaultOption = document.createElement("option");
-        defaultOption.value = "";
-        defaultOption.text = "Seleccione";
+        defaultOption.value = "0";
+        defaultOption.text = "Seleccione una comuna";
         selectComunas.appendChild(defaultOption);
   
         // Itera sobre la data para agregar las comunas al select

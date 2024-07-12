@@ -2,13 +2,16 @@
 {%load static%}
 {%block 'contenido'%}
 <div class="container">
+    {%if user.is_authenticated%}
+    <h4>¡Hola {{user.first_name}} {{user.last_name}}!</h4>
+    {%endif%}
     <form action="{%url 'buscar_inmuebles'%}" method="POST">
         {%csrf_token%}
         <div class="row">
             <div class="col-sm-12 col-md-3">
                 <label for="tipos_inmuebles"> Tipo de inmueble: </label>
                 <select class="form-select" aria-label="select tipos de inmueble" name="tipos_inmuebles">
-                    <option selected>Selecciona tu tipo de inmueble</option>
+                    <option value= "0" selected>Seleccione tu tipo de inmueble</option>
                     {% for tipo in tipos_inmuebles%}
                     <option value={{tipo.id}}>{{tipo.nombre}}</option>
                     {%endfor%}
@@ -17,7 +20,7 @@
             <div class="col-sm-12 col-md-3">
                 <label for="regiones"> Regiones: </label>
                 <select class="form-select" aria-label="select regiones" id="regiones" name="regiones" onchange="filtrarComunas(this.value)">
-                    <option selected>Selecciona tu región</option>
+                    <option value= "0" selected >Seleccione una región</option>
                     {%for region in regiones%}
                     <option value={{region.id}}>{{region.nombre}}</option>
                     {%endfor%}
@@ -26,7 +29,7 @@
             <div class="col-sm-12 col-md-3">
                 <label for="comunas"> Comunas: </label>
                 <select class="form-select" aria-label="select comunas" id="comunas" name="comunas">
-                    <option selected>Selecciona tu comuna</option>
+                    <option value= "0" selected >Seleccione una comuna</option>
                 </select>
             </div>
             <div class="col-sm-12 col-md-3 my-4">

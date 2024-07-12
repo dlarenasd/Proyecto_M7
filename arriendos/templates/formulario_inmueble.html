@@ -1,0 +1,79 @@
+<div class="container px-4 py-4">
+    <form action="{% url "crear_inmueble" %}" method="POST"> 
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name='nombre'>
+        </div>
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <textarea class="form-control" id="descripcion" name='descripcion'rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="m2_construidos" class="form-label">Metros construidos</label>
+            <input type="number" class="form-control" id="m2_construidos" name='m2_construidos' placeholder="40">
+        </div>
+        <div class="mb-3">
+            <label for="m2_terreno" class="form-label">Metros terreno</label>
+            <input type="number" class="form-control" id="m2_terreno" name='m2_terreno' placeholder="45">
+        </div>
+        <div class="mb-3">
+            <label for="estacionamientos" class="form-label">Estacionamientos</label>
+            <input type="number" class="form-control" id="estacionamientos" name='estacionamientos' placeholder="2">
+        </div>
+        <div class="mb-3">
+            <label for="habitaciones" class="form-label">Habitaciones</label>
+            <input type="number" class="form-control" id="habitaciones" name='habitaciones'placeholder="2">
+        </div>
+        <div class="mb-3">
+            <label for="banios" class="form-label">Baños</label>
+            <input type="number" class="form-control" id="banios" name='banios' placeholder="2">
+        </div>
+        <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="direccion" name='direccion'>
+        </div>
+        <div class="mb-3">
+            <label for="tipos_inmuebles"> Tipo de inmueble: </label>
+            <select class="form-select" aria-label="select tipos de inmueble" name="tipos_inmuebles">
+                <option value= "0" selected>Seleccione tipo de inmueble</option>
+                {% for tipo in tipos_inmuebles%}
+                <option value={{tipo.id}}>{{tipo.nombre}}</option>
+                {%endfor%}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="regiones"> Regiones: </label>
+            <select class="form-select" aria-label="select regiones" id="regiones" name="regiones" onchange="filtrarComunas(this.value)">
+                <option value= "0" selected >Seleccione una región</option>
+                {%for region in regiones%}
+                <option value={{region.id}}>{{region.nombre}}</option>
+                {%endfor%}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="comunas"> Comunas: </label>
+            <select class="form-select" aria-label="select comunas" id="comunas" name="comunas">
+                <option value= "0" selected >Seleccione una comuna</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="precio_mensual" class="form-label">Precio mensual</label>
+            <input type="number" class="form-control" id="precio_mensual" name='precio_mensual' placeholder="200000 <- sin puntos">
+        </div>
+        <div class="mb-3">
+            <label for="usuarios"> Arrendador: </label>
+            <select class="form-select" aria-label="select usuarios arrendadores" name="usuarios">
+                <option value= "0" selected>Seleccione su nombre</option>
+                {% for arrendador in arrendadores%}
+                <option value={{arrendador.rut}}>{{arrendador.user.first_name}} {{arrendador.user.last_name}}</option>
+                {%endfor%}
+            </select>
+        </div>
+        <div class="container position-relative">
+            <div class="position-absolute top-0 start-50 translate-middle">
+        <button type="submit" class="btn btn-primary">Crear Inmueble</button>
+    </div>
+    </div>
+    </form>
+</div>

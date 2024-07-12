@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{%load static%}
+{%block 'contenido'%}
+<form action="inmuebles/editar_inmueble/{{ inmueble.id }}" method="POST">
+    {% csrf_token %}
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name='nombre' value={{inmueble.nombre}}>
+        </div>
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <textarea class="form-control" id="descripcion" name='descripcion' value={{inmueble.descripcion}}>{{inmueble.descripcion}}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="m2_construidos" class="form-label">Metros construidos</label>
+            <input type="number" class="form-control" id="m2_construidos" name='m2_construidos' value={{inmueble.m2_construidos}}>
+        </div>
+        <div class="mb-3">
+            <label for="m2_terreno" class="form-label">Metros terreno</label>
+            <input type="number" class="form-control" id="m2_terreno" name='m2_terreno' value={{inmueble.m2_terreno}}>
+        </div>
+        <div class="mb-3">
+            <label for="estacionamientos" class="form-label">Estacionamientos</label>
+            <input type="number" class="form-control" id="estacionamientos" name='estacionamientos' value={{inmueble.estacionamientos}}>
+        </div>
+        <div class="mb-3">
+            <label for="habitaciones" class="form-label">Habitaciones</label>
+            <input type="number" class="form-control" id="habitaciones" name='habitaciones'value={{inmueble.habitaciones}}>
+        </div>
+        <div class="mb-3">
+            <label for="banios" class="form-label">Baños</label>
+            <input type="number" class="form-control" id="banios" name='banios' value={{inmueble.banios}}>
+        </div>
+        <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="direccion" name='direccion' value={{inmueble.direccion}}>
+        </div>
+        <div class="mb-3">
+            <label for="tipos_inmuebles"> Tipo de inmueble: </label>
+            <select class="form-select" aria-label="select tipos de inmueble" name="tipos_inmuebles">
+                <option value= {{inmueble.tipo_inmueble.id}} selected>{{inmueble.tipo_inmueble.nombre}}</option>
+                {% for tipo in tipos_inmuebles%}
+                <option value={{tipo.id}}>{{tipo.nombre}}</option>
+                {%endfor%}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="regiones"> Regiones: </label>
+            <select class="form-select" aria-label="select regiones" id="regiones" name="regiones" onchange="filtrarComunas(this.value)">
+                <option value= {{inmueble.region.id}} selected >{{inmueble.region.nombre}}</option>
+                {%for region in regiones%}
+                <option value={{region.id}}>{{region.nombre}}</option>
+                {%endfor%}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="comunas"> Comunas: </label>
+            <select class="form-select" aria-label="select comunas" id="comunas" name="comunas">
+                <option value= {{inmueble.comuna.id}} selected >{{inmueble.comuna.nombre}}</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="precio_mensual" class="form-label">Precio mensual</label>
+            <input type="number" class="form-control" id="precio_mensual" name='precio_mensual' value={{inmueble.precio_mensual}}>
+        </div>
+        <div class="mb-3">
+            <label for="usuarios"> Arrendador</label>
+            <select class="form-select" aria-label="select usuarios arrendadores" name="usuarios">
+                <option value="0" selected>Seleccione su nombre</option>
+                {% for arrendador in arrendadores%}
+                <option value={{arrendador.rut}}>{{arrendador.user.first_name}} {{arrendador.user.last_name}}</option>
+                {%endfor%}
+            </select>
+        </div>
+<!--<div class="mb-3">
+            <label for="usuarios"> Arrendatario</label>
+            <select class="form-select" aria-label="select usuarios arrendatarios" name="usuarios">
+                <option value="0" selected>Seleccione un arrendatario</option>
+                {% for arrendatario in arrendatarios%}
+                <option value={{arrendatario.rut}}>{{arrendatario.user.first_name}} {{arrendatario.user.last_name}}</option>
+                {%endfor%}
+            </select>
+        </div>
+        -->
+        <div class="container position-relative">
+            <div class="position-absolute top-0 start-50 translate-middle">
+        <button type="submit" class="btn btn-primary">Editar</button>
+    </div>
+</div>
+    </form>
+</div>
+
+{%endblock%}
