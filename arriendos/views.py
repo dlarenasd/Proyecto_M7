@@ -1,12 +1,12 @@
-from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404, HttpResponseRedirect
 from .models import Inmueble, Region, Comuna, TipoInmueble, Contacto, Solicitud, Usuario, TipoUsuario
-from .forms import ContactoForm, SolicitudForm
+from .forms import ContactoForm, SolicitudForm, UsuarioForm, InmuebleForm
 import json
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.views import generic
-from .services import crear_inmueble, editar_inmueble, eliminar_inmueble
+from .services import crear_inmueble, inmueble_editar, inmueble_eliminar, usuario_editar
 
 
 
@@ -27,79 +27,47 @@ class InmueblesListView(generic.ListView):
     template_name = 'arrendador.html'  # Especifique su propio nombre/ubicación de plantilla
     paginate_by = 10
 
+class InmuebleCreateView(generic.CreateView):
+    model = Inmueble
+    form_class = InmuebleForm
+    template_name = "inmueble_crear.html"
+    success_url = "/inmuebles/"
+    
+    def form_valid(self,form):
+        inmueble=form.save(commit=False)
+        inmueble.save()
+        inmueble.usuarios.add(self.request.user.usuario.rut)
+        return super().form_valid(form)
+        
+    
 def ver_inmueble(request, id):
     inmueble = get_object_or_404(Inmueble, pk=id)
     
-    return render(request, 'ver_inmueble.html', {'inmueble':inmueble})
-
-def editar_inmueble(request, id):
-    inmueble = get_object_or_404(Inmueble, pk=id)
-    tipos_inmuebles = TipoInmueble.objects.all()
-    regiones = Region.objects.all()
-    comunas = Comuna.objects.all()
-    tipo_arrendador = TipoUsuario.objects.get(pk=1)
-    arrendadores = Usuario.objects.filter(tipo_usuario = tipo_arrendador)
-    contexto = {'tipos_inmuebles':tipos_inmuebles,
-                'regiones':regiones,
-                'comunas':comunas,
-                'arrendadores':arrendadores,
-                'inmueble':inmueble}
-    if request.method =="POST":
-        nombre = (request.POST["nombre"])
-        descripcion = (request.POST["descripcion"])
-        m2_construidos = (request.POST["m2_construidos"])
-        m2_terreno = (request.POST["m2_terreno"])
-        estacionamientos = (request.POST["estacionamientos"])
-        habitaciones = (request.POST["habitaciones"])
-        banios = (request.POST["banios"])
-        direccion = (request.POST["direccion"])
-        comuna = (request.POST["comunas"])
-        region = (request.POST["regiones"])
-        tipo = (request.POST["tipo_inmueble"])
-        precio = (request.POST["precio_mensual"])
-        usuarios = (request.POST["usuarios"])
-        
-        editar_inmueble(inmueble.id, nombre,descripcion,m2_construidos,m2_terreno,estacionamientos,habitaciones, banios, direccion, comuna, region, tipo, precio, usuarios )
-
-    
-    return render(request, 'editar_inmueble.html', contexto)
-
-def eliminar_inmueble(request, id):
-    inmueble = get_object_or_404(Inmueble, pk=id)
-    
-    eliminar_inmueble(inmueble.id)
-    
-
+    return render(request, 'ver_inmueble.html', {'inm':inmueble})
 
 @login_required
-def crear_inmueble(request):
-    tipos_inmuebles = TipoInmueble.objects.all()
-    regiones = Region.objects.all()
-    comunas = Comuna.objects.all()
-    tipo_usuario = TipoUsuario.objects.get(pk=1)
-    arrendadores = Usuario.objects.filter(tipo_usuario = tipo_usuario)
-    contexto = {'tipos_inmuebles':tipos_inmuebles,
-                'regiones':regiones,
-                'comunas':comunas,
-                'arrendadores':arrendadores}
+def editar_inmueble(request, id):
+    inmueble = get_object_or_404(Inmueble, pk=id)
+    form = InmuebleForm(instance=inmueble)
+    contexto = {'inm':inmueble, 'form':form}
+    
     if request.method =="POST":
-        nombre = (request.POST["nombre"])
-        descripcion = (request.POST["descripcion"])
-        m2_construidos = (request.POST["m2_construidos"])
-        m2_terreno = (request.POST["m2_terreno"])
-        estacionamientos = (request.POST["estacionamientos"])
-        habitaciones = (request.POST["habitaciones"])
-        banios = (request.POST["banios"])
-        direccion = (request.POST["direccion"])
-        comuna = (request.POST["comunas"])
-        region = (request.POST["regiones"])
-        tipo = (request.POST["tipo_inmueble"])
-        precio = (request.POST["precio_mensual"])
-        usuarios = (request.POST["usuarios"])
+        form = InmuebleForm(request.POST, instance=inmueble)
+        if form.is_valid():
+            data = form.cleaned_data
+        data['arrendada'] = 'arrendada' in request.POST
+        inmueble_editar(data, id)
+        return redirect('inmuebles')
+    
+    return render(request, 'inmueble_editar.html', contexto)
+    
 
-        crear_inmueble(nombre,descripcion,m2_construidos,m2_terreno,estacionamientos,habitaciones, banios, direccion, comuna, region, tipo, precio, usuarios )
-        
-    return render(request, 'crear_inmueble.html', contexto)
+
+def eliminar_inmueble(request, id):
+    Inmueble.objects.get(pk=id).delete()
+    return redirect('inmuebles')
+    
+
 
 def filtrar_comunas(request):
     try:
@@ -138,6 +106,8 @@ def buscar_inmuebles(request):
         
         print(inmuebles)
         return render(request, 'buscador.html', {'inmuebles':inmuebles})
+    else:
+        return HttpResponseRedirect(request, 'indice')
         
 
 def registro(request):
@@ -174,3 +144,93 @@ def contacto(request):
         formulario = ContactoForm()
     return render(request, 'contacto.html', {'formulario': formulario})
 
+def usuario(request):
+    
+    return render(request, 'usuario.html', {'usuario':request.user.usuario})
+
+def actualizar_usuario(request):
+    if request.method =="POST":
+        usuario_editar(request.POST)
+        
+        return redirect('usuario')
+    else:
+        usuario=request.user.usuario
+        contexto = {'usuario':usuario}
+        return render(request, 'editar_usuario.html', contexto)
+
+""" 
+def editar_usuario(request, rut):
+    usuario = get_object_or_404(Usuario, pk=rut)
+    formulario = UsuarioForm()
+    
+    return render(request, 'editar_usuario.html', {'usuario':usuario, 'formulario': formulario}) 
+
+
+
+formulario = UsuarioForm(instance=request.user.usuario)
+usuario=request.user.usuario
+print("MIREN ACÁ")
+print(request.user.usuario)
+try:
+    print("A ver si entra")
+    if request.method =="POST":
+        print("VAMOS QUE SE PUEDE")
+        
+        pUsername = (request.POST["username"])
+        pEmail = (request.POST["email"])
+        pFirst_name = (request.POST["first_name"])
+        pLast_name = (request.POST["last_name"])
+        pTelefono = (request.POST["telefono"])
+        pDireccion = (request.POST["direccion"])
+        formulario.save()
+        print(pUsername)
+        
+        usuario_editar(usuario.user.id, usuario.rut, pDireccion, pTelefono, usuario.tipo_usuario, pFirst_name, pLast_name, pEmail, pUsername)
+        usuario.user.save()
+        usuario.save()
+            
+        return redirect('usuario')
+except Exception as e:
+    return e        
+    #formulario=UsuarioForm()
+else:
+    print("No sabes qué pasa")
+return render(request, 'editar_usuario.html', {'usuario':usuario, 'formulario': formulario})
+        
+
+
+def select2(request):
+    contexto = {'formulario': Select2Form()}
+    return render(request, 'select2.html', contexto)
+    
+
+@login_required
+def crear_inmueble(request):
+    tipos_inmuebles = TipoInmueble.objects.all()
+    regiones = Region.objects.all()
+    comunas = Comuna.objects.all()
+    tipo_usuario = TipoUsuario.objects.get(pk=1)
+    arrendadores = Usuario.objects.filter(tipo_usuario = tipo_usuario)
+    contexto = {'tipos_inmuebles':tipos_inmuebles,
+                'regiones':regiones,
+                'comunas':comunas,
+                'arrendadores':arrendadores}
+    if request.method =="POST":
+        nombre = (request.POST["nombre"])
+        descripcion = (request.POST["descripcion"])
+        m2_construidos = (request.POST["m2_construidos"])
+        m2_terreno = (request.POST["m2_terreno"])
+        estacionamientos = (request.POST["estacionamientos"])
+        habitaciones = (request.POST["habitaciones"])
+        banios = (request.POST["banios"])
+        direccion = (request.POST["direccion"])
+        comuna = (request.POST["comunas"])
+        region = (request.POST["regiones"])
+        tipo = (request.POST["tipo_inmueble"])
+        precio = (request.POST["precio_mensual"])
+        usuarios = (request.POST["usuarios"])
+
+        crear_inmueble(nombre,descripcion,m2_construidos,m2_terreno,estacionamientos,habitaciones, banios, direccion, comuna, region, tipo, precio, usuarios )
+        
+    return render(request, 'crear_inmueble.html', contexto)
+"""

@@ -34,9 +34,17 @@
                         <a class="nav-link" href="{% url 'admin:index' %}"> Admin</a>
                     </li>
                     {% endif %}
+                    {% if user.is_authenticated%}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'usuario'%}">
+                            Ver mi perfil
+                        </a>
+                    </li>
+                    {%endif%}
                 </ul>
 
                 {% if user.is_authenticated%}
+                
                 <form method="post" action="{% url 'logout' %}" class="ms-auto">
                     {% csrf_token %}
                     <button class="btn btn-info" type="submit">Cerrar Sesión</button>

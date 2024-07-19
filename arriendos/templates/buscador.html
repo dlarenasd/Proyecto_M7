@@ -12,15 +12,23 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card">
                         <div class="card-body">
+                            {%if inm.tipo_inmueble.nombre == "Casa"%}
+                            <img src="{% static "img/casa.jpeg" %}" class="card-img-top" alt="casa">
+                            {%elif inm.tipo_inmueble.nombre == "Departamento"%}
+                            <img src="{% static "img/depto.jpeg" %}" class="card-img-top" alt="departamento">
+                            {%elif inm.tipo_inmueble.nombre == "Parcela"%}
+                            <img src="{% static "img/parcela.jpg" %}" class="card-img-top" alt="parcela">
+                            {%endif%}
+
                             <h5 class="card-title">{{inm.nombre}}</h5>
                             <p class="card-text">{{inm.descripcion}}</p>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">{{inm.precio_mensual}}</li>
+                            <li class="list-group-item">Arriendo mensual: {{inm.precio_mensual}} pesos</li>
                             <li class="list-group-item">{{inm.comuna.nombre}}</li>
                         </ul>
                         <div class="card-body">
-                            <a href="#" class="card-link">Ver más</a>
+                            <a href="{% url 'ver_inmueble' id=inm.id%}" class="card-link">Ver más</a>
                         </div>
                     </div>
                 </div>

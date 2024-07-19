@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from .models import Comuna, Inmueble, TipoInmueble, Usuario, TipoUsuario, Region
 from .baseModel import BaseModel as bm
 
+
 class InmuebleModel(bm):
 
     def sql_obtener_todos_inmuebles():
@@ -96,9 +97,22 @@ def listar_tipo_usuarios():
 
 #EDITAR(UPDATE)
 
-def editar_inmueble(inmueble_id, pNombre, pDescripcion, pConstruidos, pTerreno, pEstacionamientos, pHabitaciones, pBanios, pDireccion, comuna_id, region_id, tipo_id, pPrecio, arrendador_id):
-    inmueble = Inmueble.objects.get(pk=inmueble_id)
-    crear_inmueble(pNombre, pDescripcion, pConstruidos, pTerreno, pEstacionamientos, pHabitaciones, pBanios, pDireccion, comuna_id, region_id, tipo_id, pPrecio, arrendador_id)
+def inmueble_editar(data, id):
+    print(data)
+    inmueble = Inmueble.objects.get(pk=id)
+    inmueble.nombre = data['nombre']
+    inmueble.descripcion = data['descripcion']
+    inmueble.m2_construidos = data['m2_construidos']
+    inmueble.m2_terreno = data['m2_terreno']
+    inmueble.estacionamientos = data['estacionamientos']
+    inmueble.habitaciones = data['habitaciones']
+    inmueble.banios = data['banios']
+    inmueble.direccion = data['direccion']
+    inmueble.comuna.id = data['comuna']
+    inmueble.region.id = data['region']
+    inmueble.tipo_inmueble.id = data['tipo_inmueble']
+    inmueble.precio_mensual = data['precio_mensual']
+    inmueble.arrendada = data['arrendada']
     inmueble.save()
 
 def asignar_arrendatario_a_inmueble(arrendatario_id, inmueble_id):
@@ -108,9 +122,24 @@ def asignar_arrendatario_a_inmueble(arrendatario_id, inmueble_id):
     inmueble.usuarios.add(arrendatario)
     inmueble.save()
 #FALTA UN MÉTODO PARA DESASIGNAR USUARIOS A UN INMUEBLE
-def editar_usuario(usuario_id, user_id, pRut, pDireccion, pTelefono, tipo_id):
-    usuario = Usuario.objects.get(pk = usuario_id)
-    crear_usuario(user_id, pRut, pDireccion, pTelefono, tipo_id)
+def usuario_editar(data):
+    usuario = Usuario.objects.get(pk = data['rut'])
+    #obj_tipo = TipoUsuario.objects.get(pk = tipo_id)
+    #obj_user = User.objects.get(pk=)
+    
+    usuario.user = usuario.user
+    usuario.rut = data['rut']
+    usuario.direccion= data['direccion']
+    usuario.telefono= data['telefono']
+    usuario.tipo_usuario=usuario.tipo_usuario
+    usuario.user.first_name = data['first_name']
+    usuario.user.last_name = data['last_name']
+    usuario.user.email = data['email']
+    usuario.user.username = data['username']
+    
+    print(usuario.direccion)
+    print(usuario.user.username)
+    usuario.user.save()
     usuario.save()
 
 def editar_tipo_inmueble(tipo_id, pNombre, pDescripcion):
@@ -125,7 +154,7 @@ def editar_tipo_usuario(tipo_id, pNombre, pDescripcion):
 
 #ELIMINAR (DELETE)
 
-def eliminar_inmueble(inmueble_id):
+def inmueble_eliminar(inmueble_id):
     Inmueble.objects.get(pk=inmueble_id).delete()
 
 def eliminar_usuario(usuario_id):

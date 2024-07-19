@@ -31,7 +31,7 @@
             {% else%}
                 <td>Disponible</td>
             {%endif%}
-            <td><a href="editar_inmueble/{{inm.id}}">Editar |
+            <td><a href="/inmuebles/editar/{{inm.id}}">Editar |
                 <a href="eliminar_inmueble/{{inm.id}}"> Eliminar</td>
     </tr>
     {%endfor%}
@@ -46,7 +46,7 @@
 {% endif %}
 <div class="container position-relative">
     <div class="position-absolute top-0 start-50 translate-middle">
-        <a class="btn btn-info" href="{% url 'crear_inmueble'%}"> Crear inmueble</a>
+        <a class="btn btn-info" href="{% url 'inmueble_crear'%}"> Crear inmueble</a>
     </div>
 </div>
 
