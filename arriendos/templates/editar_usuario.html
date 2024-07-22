@@ -4,42 +4,44 @@
 {%block 'contenido'%}
 <div class="container">
     <h2> Actualizar Perfil</h2>
-    <form method="POST" action="{% url 'actualizar_usuario'%}">
-        {%csrf_token%}
-        <div class="mb-3">
-            <label for="first_name" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="first_name" name="first_name" value="{{usuario.user.first_name}}">
-        </div>
-        <div class="mb-3">
-            <label for="last_name" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="last_name" name="last_name" value="{{usuario.user.last_name}}">
-        </div>
-        <div class="mb-3 visually-hidden">
-            <label for="rut" class="form-label">Rut</label>
-            <input type="text" class="form-control" id="rut" name="rut" value="{{usuario.rut}}">
-        </div>
-        <div class="mb-3">
-            <label for="direccion" class="form-label">Dirección</label>
-            <input type="text" class="form-control" id="direccion" name="direccion" value="{{usuario.direccion}}">
-        </div>
-        <div class="mb-3">
-            <label for="telefono" class="form-label">Teléfono</label>
-            <input type="text" class="form-control" id="telefono" name="telefono" value="{{usuario.telefono}}">
-        </div>
-        <div class="mb-3">
-            <label for="username" class="form-label">Nombre de Usuario</label>
-            <input type="text" class="form-control" id="username" name="username" value="{{usuario.user.username}}">
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="{{usuario.user.email}}">
-        </div>
-        <!--el name en un input es el que vincula con el backend, sirve para capturar los datos ingresados-->
-        <div class="container position-relative py-3">
-            <div class="position-absolute top-0 start-50 translate-middle">
-                <button type="submit" class="btn btn-info mx-auto ">Actualizar</button>
+    <div class="container cuadro-formulario">
+        <form method="POST" action="{% url 'actualizar_usuario'%}">
+            {%csrf_token%}
+            <div class="mb-3">
+                <label for="first_name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" value="{{usuario.user.first_name}}">
             </div>
-        </div>
-    </form>
+            <div class="mb-3">
+                <label for="last_name" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" value="{{usuario.user.last_name}}">
+            </div>
+            <div class="mb-3 visually-hidden">
+                <label for="rut" class="form-label">Rut</label>
+                <input type="text" class="form-control" id="rut" name="rut" value="{{usuario.rut}}">
+            </div>
+            <div class="mb-3">
+                <label for="direccion" class="form-label">Dirección</label>
+                <input type="text" class="form-control" id="direccion" name="direccion" value="{{usuario.direccion}}">
+            </div>
+            <div class="mb-3">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" value="{{usuario.telefono}}">
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label">Nombre de Usuario</label>
+                <input type="text" class="form-control" id="username" name="username" value="{{usuario.user.username}}">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="{{usuario.user.email}}">
+            </div>
+            <!--el name en un input es el que vincula con el backend, sirve para capturar los datos ingresados-->
+            <div class="container position-relative py-3">
+                <div class="position-absolute top-0 start-50 translate-middle">
+                    <button type="submit" class="btn btn-primary mx-auto ">Actualizar</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 {%endblock%}

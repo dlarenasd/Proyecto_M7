@@ -8,6 +8,7 @@ from arriendos.models import Inmueble
 select_inmuebles ="""select * from arriendos_inmueble"""
 select_arrendadas ="""select * from arriendos_inmueble where arrendada = True"""
 select_para_arriendo ="""select * from arriendos_inmueble where arrendada = False"""
+
 """ 
 query = Inmueble.objects.raw(select_inmuebles)
 for inm in query:

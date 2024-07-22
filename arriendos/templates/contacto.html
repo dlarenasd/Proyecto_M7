@@ -4,12 +4,12 @@
 {%block 'contenido'%}
 <div class="col-12 col-md-6 offset-0 offset-md-3 my-3">
     <h2 class="text-center"> Contáctanos </h2>
-    <div class="container text-center mx-auto ">
+    <div class="container text-center mx-auto cuadro-formulario">
         <form action={% url 'contacto'%} method="POST">
             {% csrf_token %}
 
             {{formulario.non_field_errors}}
-            <div class="mb-3 text-center">
+            <div class="mb-3 text-center px-3 py-3">
                 <label for="{{formulario.nombre_usuario.id_for_label}}" class="form-label">
                     Nombre
                 </label>
@@ -23,7 +23,7 @@
                     Correo Electrónico
                 </label>
                 <div>
-                    {{formulario.customer_email}}
+                    {{formulario.email}}
                 </div>
                 <div class="text-danger">
                     {{formulario.email.errors}}
@@ -35,7 +35,7 @@
                     {{formulario.mensaje}}
                 </div>
                 <div>
-                    <input type="submit" value="Enviar" class="btn btn-info">
+                    <input type="submit" value="Enviar" class="btn btn-primary">
                 </div>
             </div>
         </form>

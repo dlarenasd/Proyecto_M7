@@ -1,52 +1,59 @@
 {% extends "base.html" %}
 {%load static%}
 {%block 'contenido'%}
-<h1>Lista de Inmuebles</h1>
-{%if lista_inmuebles%}
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Descripción</th>
-            <th scope="col">Precio Mensual</th>
-            <th scope="col">Comuna</th>
-            <th scope="col">Región</th>
-            <th scope="col">Estado</th>
-            <th scope="col-2">Acciones</th>
-            
-        </tr>
-    </thead>
-    <tbody>
-    {%for inm in lista_inmuebles%}
-    <tr>
-        <th scope="row">{{inm.id}}</th>
-        <td><a href="ver_inmueble/{{inm.id}}">{{inm.nombre}}</a></td>
-        <td>{{inm.descripcion}}</td>
-        <td>{{inm.precio_mensual}}</td>
-        <td>{{inm.comuna.nombre}}</td>
-        <td>{{inm.region.nombre}}</td>
-        {% if inm.arrendada == True%}
+<div class="container">
+    <h1 class="text-center">Lista de Inmuebles</h1>
+    <div class="my-3">
+        {%if lista_inmuebles%}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Precio Mensual</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Comuna</th>
+                    <th scope="col">Región</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acciones</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+            {%for inm in lista_inmuebles%}
+            <tr>
+                <th scope="row">{{inm.id}}</th>
+                <td><a href="ver_inmueble/{{inm.id}}">{{inm.nombre}}</a></td>
+                <td>{{inm.descripcion}}</td>
+                <td>{{inm.precio_mensual}}</td>
+                <td>{{inm.direccion}}</td>
+                <td>{{inm.comuna.nombre}}</td>
+                <td>{{inm.region.nombre}}</td>
+                {% if inm.arrendada == True%}
                 <td>Arrendada</td>
-            {% else%}
+                {% else%}
                 <td>Disponible</td>
-            {%endif%}
-            <td><a href="/inmuebles/editar/{{inm.id}}">Editar |
-                <a href="eliminar_inmueble/{{inm.id}}"> Eliminar</td>
-    </tr>
-    {%endfor%}
-</tbody>
-</table>
-{%block 'paginacion'%}
-{%include 'paginacion.html'%}
-{%endblock%}
+                {%endif%}
+                <td>
+                    <a href="/inmuebles/editar/{{inm.id}}">Editar |</a> <a href="eliminar_inmueble/{{inm.id}}"> Eliminar </a>
+                </td>
+            </tr>
+            {%endfor%}
+        </tbody>
+        </table>
+        {%block 'paginacion'%}
+        {%include 'paginacion.html'%}
+        {%endblock%}
 
-{% else %}
-    <p>No hay inmuebles registrados</p>
-{% endif %}
-<div class="container position-relative">
-    <div class="position-absolute top-0 start-50 translate-middle">
-        <a class="btn btn-info" href="{% url 'inmueble_crear'%}"> Crear inmueble</a>
+        {% else %}
+            <p>No hay inmuebles registrados</p>
+        {% endif %}
+        <div class="container position-relative">
+            <div class="position-absolute top-0 start-50 translate-middle">
+                <a class="btn btn-primary" href="{% url 'inmueble_crear'%}"> Crear inmueble</a>
+            </div>
+        </div>
     </div>
 </div>
 

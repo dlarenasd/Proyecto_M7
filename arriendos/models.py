@@ -72,7 +72,6 @@ class Inmueble(models.Model):
     def __str__(self):
         return f"{self.nombre} - {self.direccion}, {self.comuna.nombre}"
 
-
 class Contacto(models.Model):
     email = models.EmailField(null = False, blank=False)
     nombre_usuario = models.CharField(max_length=64, null=False, blank=False)

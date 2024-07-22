@@ -2,61 +2,57 @@
 {%load static %}
 
 {%block 'contenido'%}
-<div class="container px-4 py-4 mx-4 my-4">
-    <h1>Crear un nuevo inmueble</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre:</label>
-            {{form.nombre}}
-        </div>
-        <div class="mb-3">
-            <label for="descripcion" class="form-label">Descripción:</label>
-            {{form.descripcion}}
-        </div>
-        <div class="mb-3">
-            <label for="m2_construidos" class="form-label">Metros construidos:</label>
-            {{form.m2_construidos}}
-            <label for="m2_terreno" class="form-label">Metros terreno:</label>
-            {{form.m2_terreno}}
-        </div>
-        <div class="mb-3">
-            <label for="estacionamientos" class="form-label">Estacionamientos:</label>
-            {{form.estacionamientos}}
-            <label for="habitaciones" class="form-label">Habitaciones:</label>
-            {{form.habitaciones}}
-            <label for="banios" class="form-label">Baños:</label>
-            {{form.banios}}
-        </div>
-        <div class="mb-3">
-            <label for="direccion" class="form-label">Dirección:</label>
-            {{form.direccion}}
-        </div>
-        <div class="mb-3">
-            <label for="region" class="form-label">Región:</label>
-            {{form.region}}
-            <label for="comuna" class="form-label">Comuna:</label>
-            {{form.comuna}}
-        </div>
-        <div class="mb-3">
-            <label for="tipo_inmueble" class="form-label">Tipo de Inmueble:</label>
-            {{form.tipo_inmueble}}
-        </div>
-        <div class="mb-3">
-            <label for="precio_mensual" class="form-label">Precio Mensual:</label>
-            {{form.precio_mensual}}
-        </div>
-        <div class="mb-3">
-            <label for="arrendada" class="form-label">Arrendada:</label>
-            {{form.arrendada}}
-        </div>        
-
-        <button type="submit" class="btn btn-primary">Crear</button>
-    </form>
-    {% if form.errors %}
-        <div class="errors">
-            {{ form.errors }}
-        </div>
-    {% endif %}  
+<div class="container px-4 py-4 my-4">
+    <h1 class="text-center">Crear un nuevo inmueble</h1>
+    <div class="container cuadro-formulario">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                {{form.nombre}}
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción:</label>
+                {{form.descripcion}}
+            </div>
+            <div class="mb-3">
+                <label for="m2_construidos" class="form-label">Metros construidos:</label>
+                {{form.m2_construidos}}
+                <label for="m2_terreno" class="form-label">Metros terreno:</label>
+                {{form.m2_terreno}}
+            </div>
+            <div class="mb-3">
+                <label for="estacionamientos" class="form-label">Estacionamientos:</label>
+                {{form.estacionamientos}}
+                <label for="habitaciones" class="form-label">Habitaciones:</label>
+                {{form.habitaciones}}
+                <label for="banios" class="form-label">Baños:</label>
+                {{form.banios}}
+            </div>
+            <div class="mb-3">
+                <label for="direccion" class="form-label">Dirección:</label>
+                {{form.direccion}}
+            </div>
+            <div class="mb-3">
+                <label for="region" class="form-label">Región:</label>
+                {{form.region}}
+                <label for="comuna" class="form-label">Comuna:</label>
+                {{form.comuna}}
+            </div>
+            <div class="mb-3">
+                <label for="tipo_inmueble" class="form-label">Tipo de Inmueble:</label>
+                {{form.tipo_inmueble}}
+            </div>
+            <div class="mb-3">
+                <label for="precio_mensual" class="form-label">Precio Mensual:</label>
+                {{form.precio_mensual}}
+            </div>
+            <div class="mb-3">
+                <label for="arrendada" class="form-label">Arrendada:</label>
+                {{form.arrendada}}
+            </div>        
+            <button type="submit" class="btn btn-primary">Crear</button>
+        </form>
+    </div> 
 </div>
 {%endblock%}

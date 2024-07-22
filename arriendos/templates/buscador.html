@@ -3,7 +3,10 @@
 
 {%block 'contenido'%}
 <div class="container">
-    <h2 class="text-center">Nuestros Productos</h2>
+    <h2 class="text-center">Nuestros Inmuebles</h2>
+    {%if not user.is_authenticated%}
+    <h5 class="text-center fst-italic">Recuerda que debes iniciar sesión para acceder a los inmuebles </h5> 
+    {%endif%}
     <section>
         <div class="container py-3">
             {%if inmuebles%}
@@ -15,7 +18,7 @@
                             {%if inm.tipo_inmueble.nombre == "Casa"%}
                             <img src="{% static "img/casa.jpeg" %}" class="card-img-top" alt="casa">
                             {%elif inm.tipo_inmueble.nombre == "Departamento"%}
-                            <img src="{% static "img/depto.jpeg" %}" class="card-img-top" alt="departamento">
+                            <img src="{% static "img/depto.jpg" %}" class="card-img-top" alt="departamento">
                             {%elif inm.tipo_inmueble.nombre == "Parcela"%}
                             <img src="{% static "img/parcela.jpg" %}" class="card-img-top" alt="parcela">
                             {%endif%}
@@ -27,9 +30,11 @@
                             <li class="list-group-item">Arriendo mensual: {{inm.precio_mensual}} pesos</li>
                             <li class="list-group-item">{{inm.comuna.nombre}}</li>
                         </ul>
+                        {%if user.is_authenticated%}
                         <div class="card-body">
                             <a href="{% url 'ver_inmueble' id=inm.id%}" class="card-link">Ver más</a>
                         </div>
+                        {%endif%}
                     </div>
                 </div>
                 {% endfor%}

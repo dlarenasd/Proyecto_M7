@@ -1,0 +1,44 @@
+body {
+    /*background-color: #d8f6f6;*/
+    background-color: #d8f6f6;
+    
+}
+
+#header {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 300px;
+}
+
+#header img {
+    width: 100%;
+    height: auto;
+    display: block; 
+    position: relative;
+    top: 25%; 
+    transform: translateY(-50%);
+}
+.navbar  {
+    background-color: #8decf9;
+    border-radius: 15px;
+
+}
+.nav-link {
+    font-weight: 500;
+}
+.bg-mio {
+    background-color: #8decf9;
+}
+
+footer {
+    border-radius: 25px;
+}
+.icono{
+    font-size: 2em;
+    margin: 5px
+}
+.cuadro-formulario {
+    border-radius: 15px;
+    background-color: #8decf9;
+}

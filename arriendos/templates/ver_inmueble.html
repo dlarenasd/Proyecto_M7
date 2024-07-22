@@ -1,65 +1,75 @@
 {% extends "base.html" %}
 {%load static%}
 {%block 'contenido'%}
-<h2>{{inm.nombre}}</h2>
 <div class="container">
-    <div class="row gx-4">
-        <div class"col-12 col-md-6">
-            {%if inm.tipo_inmueble.nombre == "Casa"%}
-            <img src="{% static "img/casa.jpeg" %}" class="card-img-top" alt="casa">
-            {%elif inm.tipo_inmueble.nombre == "Departamento"%}
-            <img src="{% static "img/depto.jpeg" %}" class="card-img-top" alt="departamento">
-            {%elif inm.tipo_inmueble.nombre == "Parcela"%}
-            <img src="{% static "img/parcela.jpg" %}" class="card-img-top" alt="parcela">
-            {%endif%}
-        </div>
-        <div class"col-12 col-md-6">
-            <table class="table">
-                <tbody>
-                    <tr> 
-                        <th scope="row">Descripción: </th>
-                        <td>{{inm.descripcion}}</td>
-                    </tr>
-                    <tr> 
-                        <th scope="row">Metros cuadrados construidos: </th>
-                        <td>{{inm.m2_construidos}}</td>
-                    </tr>
-                    <tr> 
-                        <th scope="row">Metros cuadrados totales:</th>
-                        <td>{{inm.m2_terreno}} </td>
-                    </tr>
-                    <tr> 
-                        <th scope="row">Estacionamiento(s): </th>
-                        <td>{{inm.estacionamientos}}</td>
-                    </tr>
-                    <tr> 
-                        <th scope="row">Habitaciones</th>
-                        <td>{{inm.habitaciones}}</td>
-                    </tr>
-                    <tr> 
-                        <th scope="row">Baño(s)</th>
-                        <td>{{inm.banios}}</td>
-                    </tr>
-                    <tr> 
-                        <th scope="row">Dirección</th>
-                        <td>{{inm.direccion}}, {{inm.comuna.nombre}}, {{inm.region.nombre}}</td>
-                    </tr>
-                    <tr> 
-                        <th scope="row">Tipo de inmueble</th>
-                        <td>{{inm.tipo_inmueble.nombre}}</td>
-                    </tr>
-                    <tr> 
-                        <th scope="row">Precio Mensual</th>
-                        <td>{{inm.precio_mensual}} </td>
-                    </tr>
-                    
-                </div>
+    <h2>{{inm.nombre}}</h2>
+    <div class="container">
+        <div class="row gx-2">
+            <div class"col-12 col-md-4">
+                {%if inm.tipo_inmueble.nombre == "Casa"%}
+                <img src="{% static "img/casa.jpeg" %}" alt="casa" class="img-fluid">
+                {%elif inm.tipo_inmueble.nombre == "Departamento"%}
+                <img src="{% static "img/depto.jpg" %}" alt="departamento" class="img-fluid">
+                {%elif inm.tipo_inmueble.nombre == "Parcela"%}
+                <img src="{% static "img/parcela.jpg" %}" alt="parcela">
+                {%endif%}
+            </div>
+            <div class"col-12 col-md-6">
+                <table class="table">
+                    <tbody>
+                        <tr> 
+                            <th scope="row">Descripción: </th>
+                            <td>{{inm.descripcion}}</td>
+                        </tr>
+                        <tr> 
+                            <th scope="row">Metros cuadrados construidos: </th>
+                            <td>{{inm.m2_construidos}}</td>
+                        </tr>
+                        <tr> 
+                            <th scope="row">Metros cuadrados totales:</th>
+                            <td>{{inm.m2_terreno}} </td>
+                        </tr>
+                        <tr> 
+                            <th scope="row">Estacionamiento(s): </th>
+                            <td>{{inm.estacionamientos}}</td>
+                        </tr>
+                        <tr> 
+                            <th scope="row">Habitaciones</th>
+                            <td>{{inm.habitaciones}}</td>
+                        </tr>
+                        <tr> 
+                            <th scope="row">Baño(s)</th>
+                            <td>{{inm.banios}}</td>
+                        </tr>
+                        <tr> 
+                            <th scope="row">Dirección</th>
+                            <td>{{inm.direccion}}, {{inm.comuna.nombre}}, {{inm.region.nombre}}</td>
+                        </tr>
+                        <tr> 
+                            <th scope="row">Tipo de inmueble</th>
+                            <td>{{inm.tipo_inmueble.nombre}}</td>
+                        </tr>
+                        <tr> 
+                            <th scope="row">Precio Mensual</th>
+                            <td>{{inm.precio_mensual}} </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-            <form>
-                <button type="button" class="btn btn-primary" href="#"> </button>
-            </form>
-    </div>
+            
+        {% if user.usuario.tipo_usuario.nombre == "Arrendatario" %}
+            <a class="btn btn-primary" href="#">
+            Solicitar Arriendo
+            </a>
 
+        {%endif%}
+        {% if user.usuario.tipo_usuario.nombre == "Arrendador" %}
+            <a class="btn btn-primary" href="#">
+                Ver solicitudes
+            </a>
+        {%endif%}
+    </div>
+</div>
 
 {%endblock%}

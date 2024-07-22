@@ -7,7 +7,7 @@
     {%endif%}
     <form action="{%url 'buscar_inmuebles'%}" method="POST">
         {%csrf_token%}
-        <div class="row">
+        <div class="row justify-content-evenly px-5">
             <div class="col-sm-12 col-md-3">
                 <label for="tipos_inmuebles"> Tipo de inmueble: </label>
                 <select class="form-select" aria-label="select tipos de inmueble" name="tipos_inmuebles">
@@ -33,10 +33,27 @@
                 </select>
             </div>
             <div class="col-sm-12 col-md-3 my-4">
-                <input type="submit" value="Buscar">
+                <button type="submit" class="btn btn-primary">Buscar</button>
             </div>
         </div>
-        
     </form>
+    <div class="container">
+        <div class="row justify-content-evenly">
+            <div class="col-12 col-md-5">
+                <img src={% static "img/familia-vertical.jpg" %} alt="familia-en-casa" class="img-fluid" heigth="90%">
+            </div>
+            <div class="col-12 col-md-7 py-3">
+                <p class="text-break">En Arriendos LATAM, nos apasiona conectar a las personas con sus hogares ideales. Ya sea que estés buscando un acogedor apartamento, una casa espaciosa o un loft moderno, estamos aquí para ayudarte. </p>
+                    ¿Qué nos hace diferentes? <br> <br>
+                    <p class="fw-bold">Variedad de opciones:<p> Explora nuestra amplia selección de propiedades, desde apartamentos urbanos hasta casas rurales. ¡Seguro encontrarás algo que se ajuste a tus necesidades! </p>
+                    <p class="fw-bold">Atención personalizada: <p> Nuestro equipo está comprometido en brindarte un servicio excepcional. Estamos disponibles para responder tus preguntas y asistirte en cada paso del proceso. </P>
+                    <p class="fw-bold">Transparencia: <p> Creemos en la honestidad y la claridad. Te proporcionaremos toda la información relevante sobre las propiedades, incluyendo fotos, detalles y condiciones. </p>
+                    <p class="fw-bold">Comunidad: <p> Queremos que te sientas parte de nuestra comunidad. Únete a nuestros eventos, conoce a otros arrendatarios y descubre lo que hace especial vivir en una de nuestras propiedades. </p>
+                    ¿Listo para encontrar tu próximo hogar? Explora nuestras propiedades ahora y déjanos ayudarte a hacer realidad tus sueños. </p>
+                    
+                    <p class="fw-bold">¡Bienvenidos a Arriendos LATAM!</p>
+            </div>
+        </div>
+    </div>
 </div>
 {%endblock%}

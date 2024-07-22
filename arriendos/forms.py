@@ -13,6 +13,7 @@ class SolicitudForm(forms.ModelForm):
     class Meta:
         model = Solicitud
         fields = ['usuario', 'inmueble', 'mensaje']
+
         
 class UsuarioForm(forms.ModelForm):
     direccion = forms.CharField(label='Dirección', max_length=100)
@@ -24,8 +25,7 @@ class UsuarioForm(forms.ModelForm):
     class Meta:
         model=Usuario
         fields = ['direccion', 'telefono']
-        
-    
+            
 class RegionWidget(ModelSelect2Widget):
     search_fields= [
         "nombre__icontains",

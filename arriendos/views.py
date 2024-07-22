@@ -5,6 +5,8 @@ import json
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.urls import reverse, reverse_lazy
 from django.views import generic
 from .services import crear_inmueble, inmueble_editar, inmueble_eliminar, usuario_editar
 
@@ -38,8 +40,8 @@ class InmuebleCreateView(generic.CreateView):
         inmueble.save()
         inmueble.usuarios.add(self.request.user.usuario.rut)
         return super().form_valid(form)
-        
-    
+
+@login_required        
 def ver_inmueble(request, id):
     inmueble = get_object_or_404(Inmueble, pk=id)
     
@@ -60,15 +62,12 @@ def editar_inmueble(request, id):
         return redirect('inmuebles')
     
     return render(request, 'inmueble_editar.html', contexto)
-    
 
-
+@login_required    
 def eliminar_inmueble(request, id):
     Inmueble.objects.get(pk=id).delete()
     return redirect('inmuebles')
     
-
-
 def filtrar_comunas(request):
     try:
         if request.method == 'POST':
@@ -135,11 +134,12 @@ def registro(request):
 
 def contacto(request):
     if request.method == "POST":
+        messages.success(request, '¡Muchas gracias por contactarte con nosotros!')
         formulario = ContactoForm(request.POST)
         if formulario.is_valid():
-            contact_form = ContactoForm.objects.create(**formulario.cleaned_data)
+            contact_form = Contacto.objects.create(**formulario.cleaned_data)
             
-            return redirect ('exito/')
+            return redirect(reverse('indice'))
     else:
         formulario = ContactoForm()
     return render(request, 'contacto.html', {'formulario': formulario})
@@ -158,6 +158,23 @@ def actualizar_usuario(request):
         contexto = {'usuario':usuario}
         return render(request, 'editar_usuario.html', contexto)
 
+
+def solicitar(request, id):
+    inmueble = get_object_or_404(Inmueble, pk=id)
+    usuario = request.user.usuario
+    contexto = {'inmueble':inmueble, 'usuario':usuario}
+    if request.method=="POST":
+        messages.success(request, '¡Arriendo solicitado con éxito!')
+        formulario = SolicitudForm(request.POST)
+        if formulario.is_valid():
+            solicitud = Solicitud.objects.create(**formulario.cleaned_data)
+            
+            return redirect(reverse('ver_inmueble'))
+    else:
+        formulario = SolicitudForm()
+        contexto = {'inmueble':inmueble, 'usuario':usuario, 'formulario':formulario}
+    return render(request, 'solicitud.html', contexto )
+    
 """ 
 def editar_usuario(request, rut):
     usuario = get_object_or_404(Usuario, pk=rut)

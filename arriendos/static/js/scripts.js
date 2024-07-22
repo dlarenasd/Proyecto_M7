@@ -38,3 +38,17 @@ const filtrarComunas = async (regionId) => {
     }
   };
   
+
+  $(document).ready(function(){
+    $(".card").mouseenter(function(){
+        $(this).animate({ 
+            width: "+=40px", 
+            height: "+=40px" 
+        }, 200);
+    }).mouseleave(function(){
+        $(this).animate({ 
+            width: "-=40px", 
+            height: "-=40px" 
+        }, 200);
+    });
+});
